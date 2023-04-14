@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration GRID</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style-form.css">
+    <link rel="stylesheet" href="style-form-grid.css">
+    <link rel="stylesheet" href="style-600.css">
+</head>
+
+<body>
+    <nav>
+        <a href="index.html">home</a>
+        <a href="registration.html">registration</a>
+        <a href="special.html">special</a>
+        <a href="contact.html">contact</a>
+        <a href="registration-for-grid.html" class="nav-now">registration II</a>
+    </nav>
+    <section>
+        <h1>Please fill in your toughts</h1>
+        <!--fieldset macht einen Rahmen um das Form-->
+        <fieldset class="legend-class">
+
+
+            <!--legend macht eine Überschrift-->
+            <legend>What do you think about air:</legend>
+
+
+            <form class="grid-form-container" action="/action_page.php" target="_blank" method="post" autocomplete="off"
+                size="50">
+                <div class="box-inside-form_g">
+                    <!--a text field; 'autofocus' input field automatically gets focused when the page loads-->
+                    <label for="fname">
+                        <h3>Choose a name or pseudonym:</h3>
+                    </label>
+                    <input type="text" id="fname" name="fname" required autofocus class="input-area">
+                </div>
+
+
+                <div class="box-inside-form_g">
+                    <h3>In the room you are in... </h3>
+                    <!--radio button where only one is to be selected - therefore 'name' needs to be the same for all values-->
+                    <input type="radio" id="air-quality1" name="air-quality" value="fine">
+                    <label for="air-quality1">the air is fine</label><br>
+                    <input type="radio" id="air-quality2" name="air-quality" value="bad">
+                    <label for="air-quality2">the air is bad</label><br>
+                    <input type="radio" id="air-quality3" name="air-quality" value="dont-care">
+                    <label for="air-quality3"> I don't care</label>
+                </div>
+
+
+                <div class="box-inside-form_g">
+                    <!--Checkboxes let a user select ZERO or MORE options of a limited number of choices.-->
+                    <h3>Your suggesion:</h3>
+                    <input type="checkbox" id="window" name="window" value="Bike">
+                    <label for="window">to open the window from time to time</label><br>
+                    <input type="checkbox" id="window" name="break" value="Car">
+                    <label for="break">break the window so fresh air get in all the time a car</label><br>
+                    <input type="checkbox" id="window" name="briks" value="Boat">
+                    <label for="briks">fill the window with briks to stop any ventilation</label>
+                </div>
+
+                <div class="box-inside-form_g">
+                    <!--select one value in dropdown menu-->
+                    <label for="cars">
+                        <h3>What color are you associating when you think about the air in the room you are sitting
+                            right
+                            now:</h3>
+                    </label>
+                    <select id="color" name="color" class="input-area">
+                        <option value="red">red</option>
+                        <option value="green">green</option>
+                        <option value="yellow">yellow</option>
+                        <option value="blue">blue</option>
+                        <option value="black">black</option>
+                        <option value="white">white</option>
+                    </select>
+                </div>
+
+                <div class="box-inside-form_g">
+                    <!--select more than one value-->
+                    <label for="cars">
+                        <h3>Choose a feeling:</h3>
+                    </label>
+                    <select id="cars" name="cars" size="4" multiple class="input-area">
+                        <option value="fresh">fresh</option>
+                        <option value="sticky">sticky</option>
+                        <option value="grumpy">grumpy</option>
+                        <option value="icy">icy</option>
+                    </select><br>
+                    <p class="img-caption">Hold down the Ctrl (Linux/windows) / Command (Mac) button to select multiple
+                        options.
+                    </p>
+                </div>
+
+                <div class="box-inside-form_g">
+                    <textarea name="message" class="input-area" rows="8" cols="20">
+            Please write something about air-quality.</textarea> <!-- -->
+                </div>
+
+                <!--data list lässt vordefinierte Dinge selber tippen-->
+                <div class="box-inside-form_g">
+                    <h3>Please say what you think about this form.</h3>
+                    <input list="opinion" name="opinion" class="input-area">
+                    <datalist id="opinion">
+                        <option value="good">
+                        <option value="bad">
+                        <option value="very bad">
+                        <option value="all time with">
+                        <option value="don't care">
+                    </datalist>
+                    <div class="img-caption">Suggestions after clicking.</div>
+                </div>
+
+                <div class="box-inside-form_g">
+                    <h3>What color are you associating when you think about the air in the room you are sitting right
+                        now:</h3>
+                    <label for="favcolor">Please pick a color:<br></label>
+                    <input type="color" id="favcolor" name="favcolor" class="input-area">
+                </div>
+
+                <div class="box-inside-form_g">
+                    <!--'date' show a date select field, 'datetime-local' with time-->
+                    <h3>Is there a day where you would never open the window?</h3>
+                    <label for="day-never-open"><br>Which Day:</label>
+                    <input type="datetime-local" id="day-never-open" name="day-never-open" class="input-area">
+                </div>
+
+                <div class="box-inside-form_g">
+                    <!--Datei hochladen-->
+                    <label for="myfile">
+                        <h3>Feel free to share a file with us:</h3>
+                    </label>
+                    <input type="file" id="myfile" name="myfile">
+                </div>
+
+                <div class="box-inside-form_g">
+                    <!--email eingabefeld-->
+                    <h3>Further info?</h3>
+                    If you want further information about this form please enter the email addresses that
+                    should receive this info.
+                    <br>
+                    <label for="email">Enter your email:</label>
+                    <input type="email" id="email" name="email" multiple class="input-area">
+                </div>
+
+                <div class="box-inside-form_g">
+                    <!--month field-->
+                    <label for="a-month">
+                        <h3>Please tell when you were born (month and year):</h3>
+                    </label>
+                    <input type="month" id="a-month" name="a-month" class="input-area">
+                </div>
+
+                <div class="box-inside-form_g">
+                    <!--number field defines a numeric input field with a restricted input-->
+                    <label for="mosquito">
+                        <h3>From 7 to 36 - how much do you fear a mosquito bite when leaving the window
+                            open?</h3>
+                    </label>
+                    <br>
+                    <input type="number" id="mosquito" name="mosquito" min="7" max="36" step="3" value="24"
+                        class="input-area">
+                </div>
+
+                <div class="box-inside-form_g">
+                    <!--Phone number-->
+                    <h3>Help hotline</h3>
+                    Imagine there is a service for catching all mosquitos in your room. What phone number would you
+                    imagine this
+                    service had?<br>
+                    <label for="phone">Enter a phone number:</label><br><br>
+                    <input type="tel" id="phone" name="phone" placeholder="123-456-789"
+                        pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" required class="input-area"><br>
+                    <small class="img-caption">Format: 123-456-789</small>
+                </div>
+
+                <div class="box-inside-form_g">
+                    <!--Pattern attribute-->
+                    <h3>Where do you live?</h3>
+                    <label for="plz">Please enter postcode:</label>
+                    <input type="text" id="plz" name="plz" pattern="[0-9]{5}" title="Five digit zip code"
+                        class="input-area">
+                </div>
+
+                <div class="box-inside-form_g">
+                    <!--hidden input field-->
+                    <label for=" not-hidden">Not-Hidden Field</label>
+                    <input type="text" id="not-hidden" name="not-hidden" class="input-area"><br><br>
+                    <input type="hidden" id="custId" name="custId" value="3487">
+                    <input type="submit" value="Submit" formnovalidate="formnovalidate"
+                        value="Submit without validation">
+                </div>
+                <div class="button-section-grid">
+                    <!--submit button-->
+                    <input type="submit" value="Submit" class="button-form">
+                    <!--reset button-->
+                    <input type="reset" class="button-form">
+                    <!--img as button-->
+                    <input type="image"
+                        src="https://media3.giphy.com/media/8UI85273lC1VzEgkyW/giphy.gif?cid=ecf05e47tecxbl5ob7bzhajsnc8bes0uzxnii4rr586o5xkf&rid=giphy.gif&ct=g"
+                        alt="Submit" class="button-form" onclick="alert('Woooooooohhhooooo')">
+
+                    <!--just a button that gives text back-->
+                    <button type="button" onclick="alert('Sorry, totally fine that you feel frustrated')"
+                        class="button-form">WTF?!</button>
+                </div>
+        </fieldset>
+
+        </form>
+
+
+        <fieldset class="legend-class">
+
+            <div class="flex-form-container">
+                <div class="box-inside-form_g">
+                    <h3>Bonus question</h3>
+                    <p>Please say how long (min) and how often in a 8-hours working day you prefer the window to be
+                        open.</p>
+                    <!--output element erlaubt rechnungen-->
+                    <form action="/action_page.php" oninput="x.value=parseInt(a.value)*parseInt(b.value)">
+
+                        0 min
+                        <input type="range" id="a" name="a" value="60">
+                        100 min *
+                        <input type="number" id="b" name="b" value="8" class="input-area">
+                        =
+                        <output name="x" for="a b"></output>
+                        <br><br>
+                        <input type="submit">
+                </div>
+                </form>
+        </fieldset>
+        </div>
+    </section>
+</body>
+
+</html>

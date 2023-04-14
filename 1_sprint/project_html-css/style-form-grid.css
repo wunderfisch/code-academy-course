@@ -1,0 +1,29 @@
+/* {
+    outline: solid red 1px;
+} 
+*/
+
+.grid-form-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.box-inside-form_g {    
+    align-self: auto;
+    text-align: left;
+    padding: 10px;
+    margin: 10px;
+ 
+    border-radius: 15px;
+    background-color: rgb(216, 228, 243, 0.8);
+    overflow: scroll;
+}
+
+.button-section-grid {
+    grid-column: 2/4;
+    grid-row: 6/7;
+    align-self: center;
+}
+
+

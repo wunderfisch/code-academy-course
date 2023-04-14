@@ -1,0 +1,197 @@
+/* universal selector*/
+* {
+font-family: Arial, sans-serif;
+/*outline: 1px solid red;*/
+}
+
+/*TAGS*/
+h1, h2 {
+    color: #8F773C;
+    text-align: center;
+    text-shadow: 2px 2px 5px #DBC388;
+}
+
+h1 {
+    padding-top: 7%;
+    font-size: 35pt; 
+}
+
+body {
+    background-color: #BECFF7;
+    color: black;
+    text-align: center;
+    margin: 20px;
+}
+
+nav {
+    display: block;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 50%;
+    height: 50px; 
+    background-color: #88A0DB;
+    color: black;   
+  }
+
+/*nav a --> bezieht sich auf a, das (> direkt) nach einem nav kommt */
+nav > a:link, a:visited {
+    text-decoration: none;
+    color: black;
+    /*text-align: center;*/
+    width: 20%;
+    height: 35px;
+    float: left;
+    padding-top: 15px;   
+}
+
+nav a:hover {
+    background-color: #21408F;
+    color: #F3F3F3;
+    display: block;
+    float: left;
+}
+
+a:link, a:visited {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover, a:active {
+    color: #21408F;
+  }
+
+img {
+    padding: 5px 0px;
+}
+
+ul {
+    /*list-style-image: url("https://upload.wikimedia.org/wikipedia/commons/b/b1/Elek_vzorec_CO2.PNG");*/
+    list-style-image: linear-gradient(to left bottom, rgb(126, 29, 129), rgb(86, 86, 255));
+    list-style-type: circle;
+}
+
+table {
+    width: 80%;
+    margin: 5% 10%;
+}
+
+table, th, td {
+    border: 1px solid #BECFF7;
+    border-collapse: collapse;
+  }
+
+th, td {
+    background-color: #88A0DB;
+    width: 12%;
+    padding: 5px;
+    text-align: left;
+  }
+
+td:hover { 
+    background-color: #BECFF7;
+}
+
+/*CLASSES*/
+.flex-container  {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+  }
+
+.box-inside { 
+        align-self: auto;
+        text-align: left;
+        padding: 10px;
+        margin: 10px;
+        width: 30%;
+        border-radius: 15px;
+        background-color: rgb(136, 160, 219, 0.5) ;
+}  
+ 
+.recognize-link {
+    text-decoration: underline;
+    color: #21408F;
+}
+
+.img-caption {
+    color: grey;
+    padding-left: 20px;;
+    text-align: left;
+    font-size: 12px;
+}
+
+.nav-now {
+    background-color: #DBC388;
+}
+
+.animation-box {
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.animation-item {
+    animation-name: bubble-animation;
+    animation-duration: 60s;
+    animation-iteration-count: infinite;
+}
+
+.nature {
+    color: #2d8f7f ;
+    font-style: italic;
+    
+}
+.terms {
+    width: 80%;
+    height: 300px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color:#F3F3F3;
+    text-align: left;
+    overflow: scroll;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+@keyframes bubble-animation {
+    0% {
+        transform: rotate(0deg);
+        margin-left: -600px;
+        opacity: 100%;     
+    }
+
+    15% {
+        transform: rotate(40deg);
+        margin-left: -400px;
+        margin-top: 300px;
+        opacity: 80%;     
+    }
+
+    50% {
+        transform: rotate(-70deg);
+        margin-left: 800px;
+        margin-top: 800px;
+        opacity: 40%;
+    }
+
+    75% {
+        transform: rotate(190deg);
+        margin-left: 600px;
+        margin-top: 200px;
+        opacity: 70%;
+    }
+
+    100% {
+        transform: rotate(-360deg);
+        margin-left: -600px;
+        opacity: 100%;
+    }
+}
+
+

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="h1" class="header" onmouseover="changeColor()" onchange="addNewLine">DOM Manipulation</h1>
+    <section id="p-section">
+        <span>
+            <p id="p-id" class="p-tag">first p tag</p>
+            <p class="p-tag">second p tag</p>
+            <p>third p tag</p>
+            <span id="span">this span also contains a <p>P-Tag</p></span>
+        </span>
+    </section>
+    <section>
+        <div>
+            <img src="/jellyfish.jpg" alt="a random jellyfish picture with C0 licence" titel="jellyfish">
+        </div>
+        <button onclick="changeImg()">change picture</button>
+        <!--when ever the button is clicked call function rectangle() / round()-->
+        <span><button onclick="rectangle()">rectable</button><button onclick="round()">round</button></span>
+    </section>
+    <section>
+        <input type="text" id="input-text" name="input" onchange="addNewLine()" />
+        <span>Add a new line</span>
+        <span id="new-line"></span>
+    </section>
+    <section>
+        <span>
+            <input type="radio" name="radio" id="lol" value=":-D">
+            <label for="">:-D</label>
+            <input type="radio" name="radio" id="hmm" value=":-*">
+            <label for="">:-*</label>
+            <input type="radio" name="radio" id="ppp" value=":-P">
+            <label for="">:-P</label>
+        </span>
+        <button onclick="selectedMood()">select mood</button>
+
+    </section>
+
+    <script src="main_DOM.js"></script>
+</body>
+
+</html>

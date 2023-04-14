@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registration</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style-form.css">
+  <link rel="stylesheet" href="style-600.css">
+</head>
+
+<body>
+  <nav>
+    <a href="index.html">home</a>
+    <a href="registration.html" class="nav-now">registration</a>
+    <a href="special.html">special</a>
+    <a href="contact.html">contact</a>
+    <a href="registration-for-grid.html">registration II</a>
+  </nav>
+  <section>
+    <h1>Please fill in your toughts</h1>
+    <!--fieldset macht einen Rahmen um das Form-->
+    <fieldset class="legend-class">
+
+
+      <!--legend macht eine Überschrift-->
+      <legend>What do you think about air:</legend>
+
+
+      <form class="flex-form-container" action="/action_page.php" target="_blank" method="post" autocomplete="off"
+        size="50">
+        <div class="box-inside-form">
+          <!--a text field; 'autofocus' input field automatically gets focused when the page loads-->
+          <label for="fname">
+            <h3>Choose a name or pseudonym:</h3>
+          </label>
+          <input type="text" id="fname" name="fname" required autofocus class="input-area">
+        </div>
+
+
+        <div class="box-inside-form">
+          <h3>In the room you are in... </h3>
+          <!--radio button where only one is to be selected - therefore 'name' needs to be the same for all values-->
+          <input type="radio" id="air-quality1" name="air-quality" value="fine">
+          <label for="air-quality1">the air is fine</label><br>
+          <input type="radio" id="air-quality2" name="air-quality" value="bad">
+          <label for="air-quality2">the air is bad</label><br>
+          <input type="radio" id="air-quality3" name="air-quality" value="dont-care">
+          <label for="air-quality3"> I don't care</label>
+        </div>
+
+
+        <div class="box-inside-form">
+          <!--Checkboxes let a user select ZERO or MORE options of a limited number of choices.-->
+          <h3>Your suggesion:</h3>
+          <input type="checkbox" id="window" name="window" value="Bike">
+          <label for="window">to open the window from time to time</label><br>
+          <input type="checkbox" id="window" name="break" value="Car">
+          <label for="break">break the window so fresh air get in all the time a car</label><br>
+          <input type="checkbox" id="window" name="briks" value="Boat">
+          <label for="briks">fill the window with briks to stop any ventilation</label>
+        </div>
+
+        <div class="box-inside-form">
+          <!--select one value in dropdown menu-->
+          <label for="cars">
+            <h3>What color are you associating when you think about the air in the room you are sitting
+              right
+              now:</h3>
+          </label>
+          <select id="color" name="color" class="input-area">
+            <option value="red">red</option>
+            <option value="green">green</option>
+            <option value="yellow">yellow</option>
+            <option value="blue">blue</option>
+            <option value="black">black</option>
+            <option value="white">white</option>
+          </select>
+        </div>
+
+        <div class="box-inside-form">
+          <!--select more than one value-->
+          <label for="cars">
+            <h3>Choose a feeling:</h3>
+          </label>
+          <select id="cars" name="cars" size="4" multiple class="input-area">
+            <option value="fresh">fresh</option>
+            <option value="sticky">sticky</option>
+            <option value="grumpy">grumpy</option>
+            <option value="icy">icy</option>
+          </select><br>
+          <p class="img-caption">Hold down the Ctrl (Linux/windows) / Command (Mac) button to select multiple options.
+          </p>
+        </div>
+
+        <div class="box-inside-form">
+          <textarea name="message" class="input-area" rows="8" cols="20">
+            Please write something about air-quality.</textarea> <!-- -->
+        </div>
+
+        <!--data list lässt vordefinierte Dinge selber tippen-->
+        <div class="box-inside-form">
+          <h3>Please say what you think about this form.</h3>
+          <input list="opinion" name="opinion" class="input-area">
+          <datalist id="opinion">
+            <option value="good">
+            <option value="bad">
+            <option value="very bad">
+            <option value="all time with">
+            <option value="don't care">
+          </datalist>
+          <div class="img-caption">Suggestions after clicking.</div>
+        </div>
+
+        <div class="box-inside-form">
+          <h3>What color are you associating when you think about the air in the room you are sitting right now:</h3>
+          <label for="favcolor">Please pick a color:<br></label>
+          <input type="color" id="favcolor" name="favcolor" class="input-area">
+        </div>
+
+        <div class="box-inside-form">
+          <!--'date' show a date select field, 'datetime-local' with time-->
+          <h3>Is there a day where you would never open the window?</h3>
+          <label for="day-never-open"><br>Which Day:</label>
+          <input type="datetime-local" id="day-never-open" name="day-never-open" class="input-area">
+        </div>
+
+        <div class="box-inside-form">
+          <!--Datei hochladen-->
+          <label for="myfile">
+            <h3>Feel free to share a file with us:</h3>
+          </label>
+          <input type="file" id="myfile" name="myfile">
+        </div>
+
+        <div class="box-inside-form">
+          <!--email eingabefeld-->
+          <h3>Further info?</h3>
+          If you want further information about this form please enter the email addresses that
+          should receive this info.
+          <br>
+          <label for="email">Enter your email:</label>
+          <input type="email" id="email" name="email" multiple class="input-area">
+        </div>
+
+        <div class="box-inside-form">
+          <!--month field-->
+          <label for="a-month">
+            <h3>Please tell when you were born (month and year):</h3>
+          </label>
+          <input type="month" id="a-month" name="a-month" class="input-area">
+        </div>
+
+        <div class="box-inside-form">
+          <!--number field defines a numeric input field with a restricted input-->
+          <label for="mosquito">
+            <h3>From 7 to 36 - how much do you fear a mosquito bite when leaving the window
+              open?</h3>
+          </label>
+          <br>
+          <input type="number" id="mosquito" name="mosquito" min="7" max="36" step="3" value="24" class="input-area">
+        </div>
+
+        <div class="box-inside-form">
+          <!--Phone number-->
+          <h3>Help hotline</h3>
+          Imagine there is a service for catching all mosquitos in your room. What phone number would you imagine this
+          service had?<br>
+          <label for="phone">Enter a phone number:</label><br><br>
+          <input type="tel" id="phone" name="phone" placeholder="123-456-789" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}"
+            class="input-area"><br> <!--required-->
+          <small class="img-caption">Format: 123-456-789</small>
+        </div>
+
+        <div class="box-inside-form">
+          <!--Pattern attribute-->
+          <h3>Where do you live?</h3>
+          <label for="plz">Please enter postcode:</label>
+          <input type="text" id="plz" name="plz" pattern="[0-9]{5}" title="Five digit zip code" class="input-area">
+        </div>
+
+        <div class="box-inside-form">
+          <!--hidden input field-->
+          <label for=" not-hidden">Not-Hidden Field</label>
+          <input type="text" id="not-hidden" name="not-hidden" class="input-area"><br><br>
+          <input type="hidden" id="custId" name="custId" value="3487">
+          <!--<input type="submit" value="Submit" formnovalidate="formnovalidate" value="Submit without validation">-->
+        </div>
+
+    </fieldset>
+    <div id="button-section">
+      <!--submit button-->
+      <input type="submit" value="Submit" class="button-form" formaction="thanks.html" target="_blank"> </a>
+      <!--reset button-->
+      <input type="reset" class="button-form">
+      <!--img as button-->
+      <input type="image"
+        src="https://media3.giphy.com/media/8UI85273lC1VzEgkyW/giphy.gif?cid=ecf05e47tecxbl5ob7bzhajsnc8bes0uzxnii4rr586o5xkf&rid=giphy.gif&ct=g"
+        alt="Submit" class="button-form" onclick="alert('Woooooooohhhooooo')">
+
+      <!--just a button that gives text back-->
+      <button type="button" onclick="alert('Sorry, totally fine that you feel frustrated')"
+        class="button-form">WTF?!</button>
+    </div>
+    </form>
+
+
+    <fieldset class="legend-class">
+
+      <div class="flex-form-container">
+        <div class="box-inside-form">
+          <h3>Bonus question</h3>
+          <p>Please say how long (min) and how often in a 8-hours working day you prefer the window to be open.</p>
+          <!--output element erlaubt rechnungen-->
+          <form action="/action_page.php" oninput="x.value=parseInt(a.value)*parseInt(b.value)">
+
+            0 min
+            <input type="range" id="a" name="a" value="60">
+            100 min *
+            <input type="number" id="b" name="b" value="8" class="input-area">
+            =
+            <output name="x" for="a b"></output>
+            <br><br>
+            <input type="submit">
+        </div>
+        </form>
+    </fieldset>
+    </div>
+
+    <div class="terms">
+      <h2>Terms and conditions</h2>
+      <ol>
+        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+          dolore magna aliqua. Mauris commodo quis imperdiet massa tincidunt. Non tellus orci ac auctor augue mauris
+          augue neque. Nunc non blandit massa enim nec dui. Sit amet nisl suscipit adipiscing. Malesuada proin libero
+          nunc consequat interdum. Vitae purus faucibus ornare suspendisse sed nisi. Mauris a diam maecenas sed enim
+          ut
+          sem. Ut aliquam purus sit amet luctus. Molestie ac feugiat sed lectus. At augue eget arcu dictum varius duis
+          at. Sed risus pretium quam vulputate dignissim suspendisse in. Dolor sit amet consectetur adipiscing elit
+          ut.
+        </li>
+
+        <li>Tempus iaculis urna id volutpat lacus laoreet non. Egestas dui id ornare arcu odio. Scelerisque purus
+          semper
+          eget duis at tellus at. Pulvinar etiam non quam lacus suspendisse faucibus. Posuere urna nec tincidunt
+          praesent semper feugiat nibh. Eu volutpat odio facilisis mauris sit amet massa vitae tortor. Sem et tortor
+          consequat id porta nibh venenatis. Elementum curabitur vitae nunc sed. Porttitor massa id neque aliquam. Ac
+          odio tempor orci dapibus ultrices in iaculis nunc. Sed pulvinar proin gravida hendrerit lectus a. Rhoncus
+          urna
+          neque viverra justo nec ultrices dui sapien. Risus viverra adipiscing at in tellus integer feugiat. Donec
+          massa sapien faucibus et molestie ac feugiat sed. Nibh cras pulvinar mattis nunc. Molestie ac feugiat sed
+          lectus vestibulum mattis ullamcorper. Ornare lectus sit amet est placerat. Elementum curabitur vitae nunc
+          sed.
+          Sed tempus urna et pharetra pharetra massa massa ultricies mi.
+
+        <li>Gravida arcu ac tortor dignissim convallis aenean et tortor at. Aliquam nulla facilisi cras fermentum odio
+          eu feugiat pretium nibh. Non curabitur gravida arcu ac tortor. Lectus urna duis convallis convallis tellus.
+          Enim lobortis scelerisque fermentum dui faucibus in ornare. Amet nisl suscipit adipiscing bibendum est.
+          Purus
+          semper eget duis at tellus at urna condimentum. In arcu cursus euismod quis viverra. Quis commodo odio
+          aenean
+          sed adipiscing. Nunc sed blandit libero volutpat sed cras ornare. Sed turpis tincidunt id aliquet. In
+          aliquam
+          sem fringilla ut. Vitae auctor eu augue ut lectus arcu bibendum. Porta nibh venenatis cras sed felis eget
+          velit aliquet sagittis. Pretium fusce id velit ut tortor. Laoreet non curabitur gravida arcu ac. Lectus arcu
+          bibendum at varius vel pharetra vel turpis. Felis eget nunc lobortis mattis aliquam. Facilisis leo vel
+          fringilla est ullamcorper eget nulla facilisi.</li>
+
+        <li>Vehicula ipsum a arcu cursus vitae. Nibh sed pulvinar proin gravida hendrerit lectus. Sed lectus
+          vestibulum
+          mattis ullamcorper velit. Orci a scelerisque purus semper eget duis at tellus at. A arcu cursus vitae congue
+          mauris rhoncus aenean vel elit. Est ante in nibh mauris cursus mattis molestie a. In fermentum posuere urna
+          nec tincidunt praesent semper. Tempus iaculis urna id volutpat lacus laoreet. Habitant morbi tristique
+          senectus et netus et. Nunc mattis enim ut tellus elementum sagittis. Habitant morbi tristique senectus et
+          netus et. Est velit egestas dui id ornare. Arcu vitae elementum curabitur vitae nunc sed velit dignissim
+          sodales. Viverra ipsum nunc aliquet bibendum. Ligula ullamcorper malesuada proin libero nunc consequat
+          interdum. Nec nam aliquam sem et tortor. Ipsum a arcu cursus vitae congue mauris. Elementum integer enim
+          neque
+          volutpat ac tincidunt vitae semper.</li>
+
+        <li>Natoque penatibus et magnis dis parturient montes nascetur ridiculus. Viverra nam libero justo laoreet
+          sit.
+          Ullamcorper malesuada proin libero nunc consequat interdum varius sit. Porttitor leo a diam sollicitudin
+          tempor id eu nisl. Sed sed risus pretium quam vulputate dignissim suspendisse. Suspendisse faucibus interdum
+          posuere lorem ipsum dolor sit. At ultrices mi tempus imperdiet nulla malesuada pellentesque. Mi eget mauris
+          pharetra et. Euismod elementum nisi quis eleifend. Vitae suscipit tellus mauris a diam maecenas sed enim.
+          Dolor sed viverra ipsum nunc aliquet bibendum enim. Bibendum neque egestas congue quisque egestas diam in.
+          Elementum sagittis vitae et leo duis ut diam quam. Dis parturient montes nascetur ridiculus mus mauris
+          vitae.
+          Elit duis tristique sollicitudin nibh. Ullamcorper a lacus vestibulum sed arcu non odio euismod lacinia.
+          Tempor orci eu lobortis elementum nibh tellus molestie nunc non.
+        <li>Posuere morbi leo urna molestie at elementum eu facilisis sed. Ut sem nulla pharetra diam sit. Nisl nunc
+          mi
+          ipsum faucibus vitae aliquet nec ullamcorper sit. Elit pellentesque habitant morbi tristique senectus.</li>
+        </li>
+        <li>Amet massa vitae tortor condimentum lacinia quis vel. Netus et malesuada fames ac turpis egestas. Neque
+          volutpat ac tincidunt vitae semper.</li>
+
+
+        <li>Volutpat est velit egestas dui id ornare arcu odio ut. Quam elementum pulvinar etiam non quam.
+          Malesuada fames ac turpis egestas. Sit amet porttitor eget dolor. Aliquet enim tortor at auctor urna nunc
+          id.
+          Amet justo donec enim diam vulputate. Integer eget aliquet nibh praesent tristique magna sit amet. Aenean et
+          tortor at risus viverra adipiscing. Amet consectetur adipiscing elit ut aliquam purus sit amet luctus. Sit
+          amet
+          commodo nulla facilisi nullam vehicula ipsum. Habitasse platea dictumst vestibulum rhoncus. Aliquam ultrices
+          sagittis orci a scelerisque purus semper eget. Et molestie ac feugiat sed lectus. Justo laoreet sit amet
+          cursus.
+          Sed viverra ipsum nunc aliquet bibendum enim facilisis.</li>
+
+        <li>Laoreet suspendisse interdum consectetur libero id faucibus nisl tincidunt. Proin nibh nisl condimentum id
+          venenatis a condimentum. Id neque aliquam vestibulum morbi blandit cursus. Euismod in pellentesque massa
+          placerat duis ultricies lacus sed turpis. Id nibh tortor id aliquet lectus proin nibh nisl condimentum.
+          Pellentesque eu tincidunt tortor aliquam nulla facilisi. Aliquam nulla facilisi cras fermentum odio eu
+          feugiat
+          pretium nibh. Netus et malesuada fames ac turpis egestas. Cursus vitae congue mauris rhoncus aenean. Integer
+          feugiat scelerisque varius morbi enim nunc faucibus a pellentesque. Hendrerit dolor magna eget est lorem
+          ipsum
+          dolor sit amet. Ultricies lacus sed turpis tincidunt id. Ultrices in iaculis nunc sed augue lacus viverra
+          vitae. Risus quis varius quam quisque id diam vel quam. Purus ut faucibus pulvinar elementum integer enim
+          neque. Massa sapien faucibus et molestie ac feugiat sed lectus vestibulum.</li>
+
+        <li>Quis viverra nibh cras pulvinar. Massa massa ultricies mi quis hendrerit. Et ligula ullamcorper malesuada
+          proin libero. Morbi tristique senectus et netus et. Suscipit tellus mauris a diam. Tellus pellentesque eu
+          tincidunt tortor aliquam nulla facilisi. In vitae turpis massa sed elementum tempus egestas sed. Dui
+          faucibus
+          in ornare quam viverra orci sagittis. Egestas integer eget aliquet nibh praesent tristique. Tortor posuere
+          ac
+          ut consequat. Sed tempus urna et pharetra pharetra massa massa. Et netus et malesuada fames ac turpis. Etiam
+          dignissim diam quis enim. Ullamcorper dignissim cras tincidunt lobortis. Duis ultricies lacus sed turpis
+          tincidunt id aliquet. Rutrum tellus pellentesque eu tincidunt tortor. Vitae suscipit tellus mauris a diam
+          maecenas. Integer malesuada nunc vel risus commodo. Erat pellentesque adipiscing commodo elit at imperdiet.
+          Duis ultricies lacus sed turpis tincidunt id aliquet.</li>
+
+        <li>Purus sit amet luctus venenatis lectus magna fringilla urna. Elementum nisi quis eleifend quam adipiscing
+          vitae proin sagittis. Fermentum leo vel orci porta non pulvinar neque laoreet. Aliquet nec ullamcorper sit
+          amet risus. Erat pellentesque adipiscing commodo elit at imperdiet. Eu lobortis elementum nibh tellus
+          molestie. Vitae turpis massa sed elementum tempus. Aenean et tortor at risus viverra adipiscing. Aliquet
+          sagittis id consectetur purus ut faucibus pulvinar elementum integer. Nisl purus in mollis nunc sed id
+          semper
+          risus.
+
+        <li>Malesuada nunc vel risus commodo viverra maecenas accumsan lacus vel. Netus et malesuada fames ac turpis.
+          Ipsum dolor sit amet consectetur adipiscing elit duis. Enim eu turpis egestas pretium aenean pharetra magna
+          ac. Turpis egestas pretium aenean pharetra magna ac placerat. Pellentesque dignissim enim sit amet venenatis
+          urna cursus eget nunc. Vehicula ipsum a arcu cursus vitae congue. Consequat id porta nibh venenatis cras.
+          Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Nec feugiat in fermentum posuere urna nec
+          tincidunt praesent. Amet mattis vulputate enim nulla aliquet porttitor lacus luctus. Interdum consectetur
+          libero id faucibus nisl tincidunt eget.</li>
+        </li>
+        </li>
+      </ol>
+
+    </div>
+
+  </section>
+</body>
+
+</html>

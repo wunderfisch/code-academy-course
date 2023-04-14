@@ -1,0 +1,13 @@
+section {
+  outline: 1px solid black;
+  padding: 1em;
+  margin: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 800px;
+}
+
+table {
+  border: 1px solid black;
+}
