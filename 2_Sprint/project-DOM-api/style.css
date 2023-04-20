@@ -1,0 +1,22 @@
+section {
+  padding: 1rem;
+  margin: 1rem;
+  border: 1px, solid, black;
+  background-color: aliceblue;
+}
+
+/* h1 {
+  color: brown;
+} */
+
+card {
+  background-color: aquamarine;
+  border: 1px, solid, black;
+}
+
+.light {
+  background-color: red;
+}
+.lightBlue {
+  background-color: #d0e2f0;
+}
