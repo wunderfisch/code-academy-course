@@ -71,6 +71,7 @@ changeHeadline();
 console.log(headline);
 
 // fetch
+let data;
 
 fetch(
   "https://www.berlin.de/sen/finanzen/vermoegen/beteiligungen/beteiligungsdatenbank/index.php/index/all.json?q="
@@ -81,8 +82,71 @@ fetch(
     return response.json();
   })
   .then(function (result) {
-    console.log("result :>> ", result);
+    console.log("result.index :>> ", result.index);
+    // playingWithForEach(result.index);
+    // playingWithFilter(result.index);
+    playingWithMap(result.index);
   }) // if a problem, display error
   .catch(function (error) {
     console.log("error :>> ", error);
   });
+
+// .forEach Loop
+/* function playingWithForEach(data) {
+  data.forEach((firstParameter, index, originalArray) => {
+    //   console.log("firstParameter: ", firstParameter);
+    // console.log("index: ", index);
+    // console.log("original Array: ", originalArray);
+    // elements can not be returned (like in normal functions)
+
+    // elements can be attached with innerText
+    const p = document.createElement("p");
+    p.innerText = firstParameter.unternehmen;
+    // console.log("firstParameter.unternehmen :>> ", firstParameter.unternehmen);
+    document.querySelector("section").appendChild(p);
+    //     // but with return new Elements can be added to the array
+    // // in this case structure of array to cascaded for me to integrate properly + breaks the loop at this point
+    // return (data.newDataPiece = "Agentur für Magie");
+  });
+} */
+
+// array.filter ()
+/* let mentors = ["raul", "emily", "lukas", "Heron"];
+// structure like .forEach first element in function (mentor) = every element on the array, second = index, third = complete original array
+// but logic put into return filters elements and gives back a new array
+const favoriteMentor = mentors.filter((mentor, index, originalArray) => {
+  console.log(mentor);
+  return mentor.length > 4;
+});
+console.log(favoriteMentor);
+
+function playingWithFilter(data) {
+  // in variable only the data that matches the return
+  const filteredBerlinData = data.filter(
+    (firstParameter, index, originalArray) => {
+      // console.log("filtered Berlin Data:", firstParameter);
+      // console.log("index:", index);
+      return firstParameter.unternehmen.includes("GmbH");
+    }
+  );
+  console.log("filteredBerlinData :>> ", filteredBerlinData);
+} */
+
+// .map
+//this gives a new array with "something" as many times are the array has objects
+/* function playingWithMap(data) {
+  const newData = data.map((firstParameter) => {
+    // console.log("firstParameter of playingWithMap :>> ", firstParameter);
+    return "something";
+  });
+  console.log("newData :>> ", newData);
+} */
+
+function playingWithMap(data) {
+  const newData = data.map((firstParameter) => {
+    // console.log("firstParameter of playingWithMap :>> ", firstParameter);
+    const noData = firstParameter.
+    return noData;
+  });
+  console.log("newData :>> ", newData);
+}

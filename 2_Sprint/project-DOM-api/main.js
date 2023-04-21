@@ -3,13 +3,18 @@ fetch(
 )
   .then(function (response) {
     // response is the resolved promise
-    // console.log("resonse :>> ", response);
+    console.log("resonse :>> ", response);
     //breaks with this: console.log("response in json : ", response.json());
     return response.json();
   })
   .then(function (result) {
     // result is the resolved promise of making data to a .json
-    console.log("result :>> ", result);
+    console.log("result :>> ", result.index);
+    tabelleAlle(result.index);
+    cardsAlle(result.index);
+    // return result.index;
+    // const berlinBeteiligungen = result.index;
+    // return berlinBeteiligungen;
   }) // if a problem, display error
   .catch(function (error) {
     console.log("error :>> ", error);
@@ -22,7 +27,7 @@ console.log("data", data);
 console.log("data[0].unternehmen", data[0].unternehmen);
  */
 
-function tabelleAlle() {
+function tabelleAlle(data) {
   for (let i = 0; i < data.length; i++) {
     // everything should be in tbody
     var tBody = document.getElementById("tBody");
@@ -83,7 +88,7 @@ secondButton.addEventListener("click", changeColor);
 
 // CREATE CARDS
 // create cards with bootstrap: has to have the concatination, names, styles bootsrap requires. look up: bootstrap-->components-->card
-function cardsAlle() {
+function cardsAlle(data) {
   for (let i = 0; i < data.length; i++) {
     // get right position in html
     let container = document.getElementById("container");
