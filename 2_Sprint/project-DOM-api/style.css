@@ -1,14 +1,11 @@
 section {
-  padding: 1rem;
-  margin: 1rem;
-  border: 1px, solid, black;
-  background-color: aliceblue;
+  padding: 2rem;
 }
 
-/* h1 {
-  color: brown;
-} */
-
+h1 {
+  padding: 2rem;
+}
+/* 
 card {
   background-color: aquamarine;
   border: 1px, solid, black;
@@ -20,3 +17,4 @@ card {
 .lightBlue {
   background-color: #d0e2f0;
 }
+ */

@@ -145,8 +145,47 @@ function playingWithFilter(data) {
 function playingWithMap(data) {
   const newData = data.map((firstParameter) => {
     // console.log("firstParameter of playingWithMap :>> ", firstParameter);
-    const noData = firstParameter.
-    return noData;
+    // adding new Key-Value-Pair to the objecs in the array
+    firstParameter.addingNewKeyValuePair =
+      "A new Key-Value-pair to be printed to all Objects of the array";
+    // returning the new updated array
+    return firstParameter;
   });
-  console.log("newData :>> ", newData);
+  // even updated array if called before function
+  console.log("newData added to array:>> ", newData);
+}
+
+// The Spread Operator
+const array1 = [1, 2, 3];
+const array2 = [4, 5, 6];
+
+// combine both arrays in one new with forEach (no spread operator):
+/* var array3 = [];
+array1.forEach((number) => {
+  array3.push(number);
+});
+array2.forEach((number) => {
+  array3.push(number);
+});
+console.log("array3 :>> ", array3); */
+
+// do the same with spread Operator:
+const array3 = [...array1, ...array2];
+console.log("array3 :>> ", array3);
+
+let testObject = { a: 1, b: 4, c: 8 };
+let newObject = { ...testObject, b: 6, x: 19 };
+// b will be overwritten:
+console.log("newObject :>> ", newObject);
+
+// Logical Operators or || and and &&
+let number1 = 10;
+let number2 = 15;
+
+if (number1 > 15 || number2 > 7) {
+  console.log("at least one is true");
+}
+
+if (number1 > 15 && number2 > 7) {
+  console.log("both are true");
 }

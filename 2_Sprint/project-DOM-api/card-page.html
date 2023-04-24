@@ -14,29 +14,26 @@
 <body>
     <h1>Beteiligungen des Landes Berlin</h1>
     <!-- function should not be implemented in html, but only with id in html, than in JS  -->
-    <button onclick="clickHere()">click here</button>
-    <button onclick="clickHere()" id="secondButton">click here too</button>
+    <!--     <button onclick="clickHere()">click here</button>
+    <button onclick="clickHere()" id="secondButton">click here too</button> -->
     <section>
-        <div id="inputContainer"></div>
-    </section>
-    <section>
-        <div>
-            <table class="table table-striped table-hover">
-                <thead>
-                    <th>Id</th>
-                    <th>Unternehmen</th>
-                    <th>Anteil</th>
-                    <th>Bilanzsumme</th>
-                    <th>Umsatz</th>
-                </thead>
-                <tbody id="tBody" class="table-group-divider">
-            </table>
+        <div id="radiosUmsatz">
+            <input class="form-check-input" type="radio" id="less1" name="flexRadioDefault" value="1"><label
+                class="form-check-label" for="less1">less than 1 Mio €</label>
+            <input class="form-check-input" type="radio" id="less5" name="flexRadioDefault" value="5"><label
+                class="form-check-label" for="less5">between 1-5 Mio €</label>
+            <input class="form-check-input" type="radio" id="less50" name="flexRadioDefault" value="50"><label
+                class="form-check-label" for="less50">between 5-50 Mio €</label>
+            <input class="form-check-input" type="radio" id="more50" name="flexRadioDefault" value="51"><label
+                class="form-check-label" for="more50">more than 50 Mio €</label>
         </div>
     </section>
+
+    <!-- id for inserting js, default classes of bootstrap -->
     <section>
         <!-- id for inserting js, default classes of bootstrap -->
         <div class="container text-center">
-            <div id="container" class="row"></div>
+            <div id="container" class="row mt-2"></div>
 
             <!--   <div class="card" style="width: 18rem;">
                 <img src="..." class="card-img-top" alt="...">
@@ -50,14 +47,14 @@
         </div>
     </section>
 
-    </div>
+
     <!-- bootstrap link needs to be the first of scripts to tell about the way it looks-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
     <!-- // static data:
          <script src="response.js"></script> -->
-    <script src="main.js"></script>
+    <script src="for-cards.js"></script>
 
 
 </body>
