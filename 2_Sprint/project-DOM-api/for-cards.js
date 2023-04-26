@@ -13,6 +13,7 @@ fetch(
 
     cardsAlle(result.index);
     somethingRadios(result.index);
+    dropdownBeschaeftigte(result.index);
     // return result.index;
     // const berlinBeteiligungen = result.index;
     // return berlinBeteiligungen;
@@ -40,26 +41,133 @@ secondButton.addEventListener("click", changeColor); */
 //
 //
 // Radio Inputs
-// function around
-function somethingRadios(data) {
-  const radiosUmsatz = document
-    .getElementById("radiosUmsatz")
-    .addEventListener("click", function () {
-      // trigger filter function
-      console.log("radioUmsatz :>> ", radiosUmsatz);
-      data.forEach((firstParameter) => {});
-    });
+// loop through radios
+function loopRadios() {
+  for (
+    let i = 0;
+    i < document.getElementsByClass.form - check - input.length;
+    i++
+  ) {}
 }
 
-//radiosUmsatz.forEach((radio) => {}
+function somethingRadios(data) {
+  //find all radio buttons
+  let allRadioButtons = document.getElementsByClassName("form-check-input");
+  // console.log("allRadioButtons :>> ", allRadioButtons);
+  // loop to see which was picked
+  for (let i = 0; i < allRadioButtons.length; i++) {
+    // console.log("allRadioButtons[i] :>> ", allRadioButtons[i]);
+    allRadioButtons[i].addEventListener("change", function () {
+      console.log("value of Radiobuttons", allRadioButtons[i].value);
+      // filterRadios(data, allRadioButtons[i].value);
+      filterRadios(data);
+    });
+  }
+  //    only finds a single Radio
+  //    const radiosUmsatz = document
+  //   .getElementById("less1") //instead of less1 variable from loop
+  //   .addEventListener("click", function () {
+  //     // trigger filter function
+  //     console.log("radioUmsatz (erster) :>> ", radiosUmsatz);
+  //     // data.forEach((firstParameter) => {});
+  //   });
+}
+
+let filterRadios = (dataresults) => {
+  console.log("dataresults :>> ", dataresults);
+  // console.log("value :>> ", value);// this would work only if we recieve value as argument
+
+  //find the checked radio button
+  let checkedRadio = document.querySelector("input[type='radio']:checked");
+  console.log("checkedRadio.value :>> ", checkedRadio.value);
+  let filteredResults = [];
+
+  for (let i = 0; i < dataresults.length; i++) {
+    // console.log("dataresults.umsatz :>> ", dataresults[i].umsatz);
+    if (dataresults[i].umsatz < checkedRadio.value) {
+      filteredResults.push(dataresults[i]);
+    }
+
+    /* // same but with .filter
+  let filteredResults = dataresults.filter((singleData) => {
+    return singleData.umsatz < checkedRadio.value;
+  }); */
+    cardsAlle(filteredResults);
+    console.log("filteredResults :>> ", filteredResults);
+  }
+};
+
+// Dropdown
+function dropdownBeschaeftigte(data) {
+  // find the options
+  // console.log("data :>> ", data);
+  let allDropDown = document.getElementsByTagName("option");
+
+  // console.log("allDropDown :>> ", allDropDown);
+  // for (let i = 0; i < allDropDown.length; i++) {
+  //   console.log("allDropDown[i] :>> ", allDropDown[i]);
+  //   allDropDown[i].addEventListener("change", function () {
+  //     console.log("allDropDown[i].value :>> ", allDropDown[i].value);
+  //     // filterOptions(data);
+  //   });
+  // }
+
+  const select = document.getElementById("beschaeftigte");
+  // console.log("select :>> ", select);
+  select.addEventListener("change", function () {
+    // findSelectOption(data);
+    console.log("select value :>> ", select.value);
+    filterBySelect(data);
+  });
+}
+
+function findSelectOption(data) {
+  // console.log("data :>> ", data);
+  let allDropDown = document.getElementsByTagName("option");
+
+  for (let i = 0; i < allDropDown.length; i++) {
+    if (allDropDown[i].selected === true) {
+      // console.log("allDr :>> ", allDropDown[i].value);
+      filterBySelect(allDropDown[i].value, data);
+    }
+  }
+}
+
+const filterBySelect = (data) => {
+  console.log("data", data);
+  // console.log("value :>> ", value);
+  const selectValue = document.getElementById("beschaeftigte").value;
+
+  let filteredData = [];
+
+  for (let i = 0; i < data.length; i++) {
+    if (+data[i].beschaeftigte > +selectValue) {
+      filteredData.push(data[i]);
+    }
+  }
+  console.log("filteredData :>> ", filteredData);
+  cardsAlle(filteredData);
+};
+//new try dropdown
+/* const eventListenerDropDown = document
+  .getElementsByTagName("option")
+  .addEventListener("change", (event) => {
+    console.log("dropdown new try");
+  }); */
+
+let filterOptions = (data) => {
+  console.log("data in filterOptions :>> ");
+};
 
 // CREATE CARDS
 // create cards with bootstrap: has to have the concatination, names, styles bootsrap requires. look up: bootstrap-->components-->card
 function cardsAlle(data) {
   console.log("data :>> ", data);
+  let container = document.getElementById("container");
+  // "" empty sting resets so the new cards are not added but the only cards displayed
+  container.innerText = "";
   for (let i = 0; i < data.length; i++) {
     // get right position in html
-    let container = document.getElementById("container");
     // create div for card
     let cardDiv = document.createElement("div");
     // make the card layout apply the bootstrap grid

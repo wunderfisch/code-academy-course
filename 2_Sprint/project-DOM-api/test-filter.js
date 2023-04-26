@@ -26,6 +26,7 @@ function filterUmsatz(data, num, num2) {
   //do filtering
   let kleinerEins = data.filter(
     (firstParameter) => parseFloat(firstParameter.umsatz) < num
+    // && > num2
   );
   console.log("filterUmsatz :>> ", kleinerEins);
   return kleinerEins;
