@@ -12,6 +12,7 @@ fetch(
     console.log("result :>> ", result.index);
 
     cardsAlle(result.index);
+    somethingRadios(result.index);
     // return result.index;
     // const berlinBeteiligungen = result.index;
     // return berlinBeteiligungen;
@@ -19,13 +20,6 @@ fetch(
   .catch(function (error) {
     console.log("error :>> ", error);
   });
-
-/* use this with static data:
-  // gibt die Daten der response.js zur console
-console.log("data", data);
-// gibt die Daten des ersten elements im array an die console
-console.log("data[0].unternehmen", data[0].unternehmen);
- */
 
 // BUTTON
 // implemented 2 times in html, why do they not count together?
@@ -45,20 +39,19 @@ secondButton.addEventListener("click", changeColor); */
 
 //
 //
-// KEIN PLAN
-//
 // Radio Inputs
 // function around
-function(){
-const radiosUmsatz = document
-  .getElementById("radiosUmsatz")
-  .addEventListener("click", radiosFunction);
-console.log("radioUmsatz :>> ", radiosUmsatz);
-
-radiosUmsatz.forEach((radio) => {
-
-})
+function somethingRadios(data) {
+  const radiosUmsatz = document
+    .getElementById("radiosUmsatz")
+    .addEventListener("click", function () {
+      // trigger filter function
+      console.log("radioUmsatz :>> ", radiosUmsatz);
+      data.forEach((firstParameter) => {});
+    });
 }
+
+//radiosUmsatz.forEach((radio) => {}
 
 // CREATE CARDS
 // create cards with bootstrap: has to have the concatination, names, styles bootsrap requires. look up: bootstrap-->components-->card
@@ -72,7 +65,7 @@ function cardsAlle(data) {
     // make the card layout apply the bootstrap grid
     cardDiv.setAttribute(
       "class",
-      "col-4 col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 m-2"
+      "col-4 col-xs-12 col-sm-3 col-md-3 col-lg-3 col-xl-4 m-2"
     );
     // assigne a class that is named correctly like the bootstrap class!
     cardDiv.classList.add("card");
@@ -146,7 +139,6 @@ function cardsAlle(data) {
     container.appendChild(cardDiv);
   }
 }
-cardsAlle();
 
 //1. create the intputs in HTML
 //2. create a function to add events to those inputs.

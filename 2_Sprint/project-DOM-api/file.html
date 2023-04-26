@@ -12,10 +12,58 @@
 </head>
 
 <body>
+
+    <nav class="navbar navbar-expand-md bg-body-tertiary">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link active" aria-current="page" href="file.html">Table</a>
+                    <a class="nav-link" href="card-page.html">Cards</a>
+                    <a class="nav-link" href="umsatzraten.html">Spiel</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
     <h1>Beteiligungen des Landes Berlin</h1>
+    <section>
+        <div>
+            <p> These pages are a try to handel json data from an open API and display in different ways.</br>
+                The data displayed is retireved from <a
+                    href="https://daten.berlin.de/datensaetze/beteiligungsdatenbank-des-landes-berlin">https://daten.berlin.de/</a>.
+                It is published under a <a href="https://creativecommons.org/licenses/by/3.0/de/">creativecommons BY 3.0
+                    licence</a>.</p>
+
+            <p>
+
+                <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                    Aufklappen
+                </button>
+            </p>
+            <div class="collapse" id="collapseExample">
+                <div class="card card-body">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Vitae auctor eu augue ut lectus. Metus aliquam eleifend mi in nulla posuere
+                    sollicitudin aliquam ultrices. Et malesuada fames ac turpis egestas sed tempus. Pellentesque eu
+                    tincidunt tortor aliquam nulla facilisi cras fermentum odio. Curabitur gravida arcu ac tortor. Nulla
+                    pharetra diam sit amet nisl suscipit adipiscing. Fames ac turpis egestas maecenas pharetra convallis
+                    posuere. Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque. Tristique magna sit
+                    amet purus gravida quis. Eleifend donec pretium vulputate sapien nec sagittis aliquam. Ullamcorper
+                    eget nulla facilisi etiam dignissim diam quis enim. Donec et odio pellentesque diam volutpat commodo
+                    sed egestas. At lectus urna duis convallis convallis tellus id interdum. Rhoncus est pellentesque
+                    elit ullamcorper dignissim cras tincidunt lobortis feugiat. Nam at lectus urna duis. Enim nec dui
+                    nunc mattis enim. Nunc non blandit massa enim nec dui nunc mattis.
+                </div>
+            </div>
+    </section>
     <!-- function should not be implemented in html, but only with id in html, than in JS  -->
-    <button onclick="clickHere()">click here</button>
-    <button onclick="clickHere()" id="secondButton">click here too</button>
+    <!--  <button onclick="clickHere()">click here</button>
+    <button onclick="clickHere()" id="secondButton">click here too</button> -->
     <section>
         <div id="inputContainer"></div>
     </section>

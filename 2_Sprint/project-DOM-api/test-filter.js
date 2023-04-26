@@ -1,0 +1,43 @@
+fetch(
+  "https://www.berlin.de/sen/finanzen/vermoegen/beteiligungen/beteiligungsdatenbank/index.php/index/all.json?q="
+)
+  .then(function (response) {
+    // response is the resolved promise
+    console.log("resonse :>> ", response);
+    return response.json();
+  })
+  .then(function (result) {
+    // result is the resolved promise of making data to a .json
+    console.log("result :>> ", result.index);
+    filterUmsatz(result.index, 1, 0);
+    filterUmsatz(result.index, 5, 1);
+    filterUmsatz(result.index, 50, 100);
+    filterUmsatz(result.index, 100, 10000);
+
+    // return result.index;
+    // const berlinBeteiligungen = result.index;
+    // return berlinBeteiligungen;
+  }) // if a problem, display error
+  .catch(function (error) {
+    console.log("error :>> ", error);
+  });
+
+function filterUmsatz(data, num, num2) {
+  //do filtering
+  let kleinerEins = data.filter(
+    (firstParameter) => parseFloat(firstParameter.umsatz) < num
+  );
+  console.log("filterUmsatz :>> ", kleinerEins);
+  return kleinerEins;
+}
+
+// Radio Inputs
+// does not work
+/* function somethingRadios() {
+  const radiosUmsatz = document
+    .getElementById("less1")
+    .addEventListener("change", function filterUmsatz(result.index, 1) {
+      console.log("less1 is clicked");
+    });
+}
+somethingRadios(); */

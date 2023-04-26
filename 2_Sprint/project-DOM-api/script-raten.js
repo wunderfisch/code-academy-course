@@ -13,6 +13,7 @@ let score = 20;
 //
 // instead of data.unternehmen hier vorerst die random nummer anzeigen
 document.querySelector(".number").textContent = number;
+// later: make (.map) new array with only new id, name and value to guess (so no unused ids in between)
 
 // select element + event listener (1. when to act, 2. event handler (function value as argument))
 document.querySelector(".check").addEventListener("click", function () {
