@@ -29,36 +29,35 @@
         </div>
     </nav>
     <h1>Beteiligungen des Landes Berlin</h1>
-    <!-- function should not be implemented in html, but only with id in html, than in JS  -->
-    <!--     <button onclick="clickHere()">click here</button>
-    <button onclick="clickHere()" id="secondButton">click here too</button> -->
-    <section>
+    <!-- functionality should not be implemented in html, but only with id in html, then in JS  -->
 
+
+    <section>
         <div id="radiosUmsatz">
             <p>Umsatz pro Jahr:</p>
             <input class="form-check-input" type="radio" id="less1" name="flexRadioDefault" value="1"><label
-                class="form-check-label" for="less1">less than 1 Mio €</label>
+                class="form-check-label" for="less1">weniger als 1 Mio €</label>
             <input class="form-check-input" type="radio" id="less5" name="flexRadioDefault" value="5"><label
-                class="form-check-label" for="less5">between 1-5 Mio €</label>
+                class="form-check-label" for="less5">bis zu 5 Mio €</label>
             <input class="form-check-input" type="radio" id="less50" name="flexRadioDefault" value="50"><label
-                class="form-check-label" for="less50">between 5-50 Mio €</label>
-            <input class="form-check-input" type="radio" id="more50" name="flexRadioDefault" value="51"><label
-                class="form-check-label" for="more50">more than 50 Mio €</label>
+                class="form-check-label" for="less50">bis zu 50 Mio €</label>
+            <input class="form-check-input" type="radio" id="more50" name="flexRadioDefault" value="50000"><label
+                class="form-check-label" for="more50">Alle</label>
         </div>
     </section>
+
     <section>
         <div>
-            <p>Anzahl an Beschäftigten:</p>
+            <p>Unternehmen mit Anzahl an Beschäftigten:</p>
             <select class="form-select" aria-label="Default select example" name="beschaeftigte" id="beschaeftigte">
-                <option value="10">bis 10</option>
-                <option value="50">bis 50</option>
-                <option value="500">bis 500</option>
-                <option selected value="501">mehr als 500</option>
+                <option value="10">weniger als 10</option>
+                <option value="50">bis 49</option>
+                <option value="500">bis 499</option>
+                <option selected value="20000">alle</option>
             </select>
         </div>
     </section>
 
-    <!-- id for inserting js, default classes of bootstrap -->
     <section>
         <!-- id for inserting js, default classes of bootstrap -->
         <div class="container text-center">

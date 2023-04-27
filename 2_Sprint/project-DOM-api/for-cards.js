@@ -3,13 +3,13 @@ fetch(
 )
   .then(function (response) {
     // response is the resolved promise
-    console.log("resonse :>> ", response);
+    //  console.log("resonse :>> ", response);
     //breaks with this: console.log("response in json : ", response.json());
     return response.json();
   })
   .then(function (result) {
     // result is the resolved promise of making data to a .json
-    console.log("result :>> ", result.index);
+    //  console.log("result :>> ", result.index);
 
     cardsAlle(result.index);
     somethingRadios(result.index);
@@ -21,22 +21,6 @@ fetch(
   .catch(function (error) {
     console.log("error :>> ", error);
   });
-
-// BUTTON
-// implemented 2 times in html, why do they not count together?
-function clickHere() {
-  console.log("clicked");
-}
-/* 
-// button with EventListener for action
-// get button
-var secondButton = document.getElementById("secondButton");
-// function to be called (functionality does not make sense right now, better get a filter later...)
-function changeColor() {
-  container.classList.toggle("light");
-}
-// function call as callback function
-secondButton.addEventListener("click", changeColor); */
 
 //
 //
@@ -50,6 +34,7 @@ function loopRadios() {
   ) {}
 }
 
+// +++++ RADIOS +++++
 function somethingRadios(data) {
   //find all radio buttons
   let allRadioButtons = document.getElementsByClassName("form-check-input");
@@ -63,18 +48,10 @@ function somethingRadios(data) {
       filterRadios(data);
     });
   }
-  //    only finds a single Radio
-  //    const radiosUmsatz = document
-  //   .getElementById("less1") //instead of less1 variable from loop
-  //   .addEventListener("click", function () {
-  //     // trigger filter function
-  //     console.log("radioUmsatz (erster) :>> ", radiosUmsatz);
-  //     // data.forEach((firstParameter) => {});
-  //   });
 }
 
 let filterRadios = (dataresults) => {
-  console.log("dataresults :>> ", dataresults);
+  // console.log("dataresults :>> ", dataresults);
   // console.log("value :>> ", value);// this would work only if we recieve value as argument
 
   //find the checked radio button
@@ -83,8 +60,8 @@ let filterRadios = (dataresults) => {
   let filteredResults = [];
 
   for (let i = 0; i < dataresults.length; i++) {
-    // console.log("dataresults.umsatz :>> ", dataresults[i].umsatz);
-    if (dataresults[i].umsatz < checkedRadio.value) {
+    //  console.log("dataresults.umsatz :>> ", dataresults[i].umsatz);
+    if (parseFloat(dataresults[i].umsatz) < checkedRadio.value) {
       filteredResults.push(dataresults[i]);
     }
 
@@ -93,24 +70,17 @@ let filterRadios = (dataresults) => {
     return singleData.umsatz < checkedRadio.value;
   }); */
     cardsAlle(filteredResults);
-    console.log("filteredResults :>> ", filteredResults);
+    // console.log("filteredResults :>> ", filteredResults);
   }
+  console.log("filteredResults :>> ", filteredResults);
 };
 
-// Dropdown
+// +++++ SELECT +++++
+// Get Select from html + eventListener - Select does not need looping through options
 function dropdownBeschaeftigte(data) {
   // find the options
   // console.log("data :>> ", data);
   let allDropDown = document.getElementsByTagName("option");
-
-  // console.log("allDropDown :>> ", allDropDown);
-  // for (let i = 0; i < allDropDown.length; i++) {
-  //   console.log("allDropDown[i] :>> ", allDropDown[i]);
-  //   allDropDown[i].addEventListener("change", function () {
-  //     console.log("allDropDown[i].value :>> ", allDropDown[i].value);
-  //     // filterOptions(data);
-  //   });
-  // }
 
   const select = document.getElementById("beschaeftigte");
   // console.log("select :>> ", select);
@@ -121,6 +91,7 @@ function dropdownBeschaeftigte(data) {
   });
 }
 
+// find the selected option
 function findSelectOption(data) {
   // console.log("data :>> ", data);
   let allDropDown = document.getElementsByTagName("option");
@@ -134,35 +105,29 @@ function findSelectOption(data) {
 }
 
 const filterBySelect = (data) => {
-  console.log("data", data);
+  // console.log("data", data);
   // console.log("value :>> ", value);
   const selectValue = document.getElementById("beschaeftigte").value;
 
   let filteredData = [];
 
   for (let i = 0; i < data.length; i++) {
-    if (+data[i].beschaeftigte > +selectValue) {
+    if (parseInt(data[i].beschaeftigte) < +selectValue) {
       filteredData.push(data[i]);
     }
   }
   console.log("filteredData :>> ", filteredData);
   cardsAlle(filteredData);
 };
-//new try dropdown
-/* const eventListenerDropDown = document
-  .getElementsByTagName("option")
-  .addEventListener("change", (event) => {
-    console.log("dropdown new try");
-  }); */
 
-let filterOptions = (data) => {
-  console.log("data in filterOptions :>> ");
-};
+// let filterOptions = (data) => {
+//   console.log("data in filterOptions :>> ");
+// };
 
-// CREATE CARDS
+// +++++ CREATE CARDS ++++++
 // create cards with bootstrap: has to have the concatination, names, styles bootsrap requires. look up: bootstrap-->components-->card
 function cardsAlle(data) {
-  console.log("data :>> ", data);
+  //  console.log("data :>> ", data);
   let container = document.getElementById("container");
   // "" empty sting resets so the new cards are not added but the only cards displayed
   container.innerText = "";
@@ -170,10 +135,10 @@ function cardsAlle(data) {
     // get right position in html
     // create div for card
     let cardDiv = document.createElement("div");
-    // make the card layout apply the bootstrap grid
+    // make the card layout apply the bootstrap grid, but with gap inbetween cards grid does not work as supposed, therefore col-3 statt col-4.
     cardDiv.setAttribute(
       "class",
-      "col-4 col-xs-12 col-sm-3 col-md-3 col-lg-3 col-xl-4 m-2"
+      "col-xs-12 col-sm-3 col-md-3 col-lg-3 col-xl-3 m-2"
     );
     // assigne a class that is named correctly like the bootstrap class!
     cardDiv.classList.add("card");
@@ -181,7 +146,7 @@ function cardsAlle(data) {
     // set the bootstrap style
     // cardDiv.setAttribute("style", "width: 18rem;");
     // end of creating the empty cards (+appendChild(cardDiv) so it is put to the right place)
-    // background color of the cards
+
     if (i % 2 === 0) {
       cardDiv.classList.add("text-bg-dark");
     }
@@ -247,11 +212,3 @@ function cardsAlle(data) {
     container.appendChild(cardDiv);
   }
 }
-
-//1. create the intputs in HTML
-//2. create a function to add events to those inputs.
-//3. Inside the callback of that event, we should call a function that is gonna do the filtering
-//4. Create the function which is gonna filter the data. That function should recieve the array of companies
-//5. Inside that function we need to know one thing : the option we selected.
-//6. Use that selected option as criteria to filter the data using .filter()
-//7. after filtering, call cardsAlle() again, sending the array of filtered results.

@@ -1,0 +1,9 @@
+- bootstrap cards margin interfer with number of cols
+- logic for 1-5, 5-50... the inbetween values
+- default logo for 400 error
+- sorting table
+- background color (not white) or input color
+- better naming not somethingRadios
+- index.html everthing else in folders
+- toInternationalNumber
+
