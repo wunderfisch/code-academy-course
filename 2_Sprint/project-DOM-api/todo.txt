@@ -6,4 +6,5 @@
 - better naming not somethingRadios
 - index.html everthing else in folders
 - toInternationalNumber
+- language consistency
 
