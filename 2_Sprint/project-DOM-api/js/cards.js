@@ -2,40 +2,23 @@ fetch(
   "https://www.berlin.de/sen/finanzen/vermoegen/beteiligungen/beteiligungsdatenbank/index.php/index/all.json?q="
 )
   .then(function (response) {
-    // response is the resolved promise
     //  console.log("resonse :>> ", response);
-    //breaks with this: console.log("response in json : ", response.json());
     return response.json();
   })
   .then(function (result) {
-    // result is the resolved promise of making data to a .json
     //  console.log("result :>> ", result.index);
 
     cardsAlle(result.index);
-    somethingRadios(result.index);
+    findRadios(result.index);
     dropdownBeschaeftigte(result.index);
-    // return result.index;
-    // const berlinBeteiligungen = result.index;
-    // return berlinBeteiligungen;
-  }) // if a problem, display error
+  })
   .catch(function (error) {
     console.log("error :>> ", error);
   });
 
-//
-//
-// Radio Inputs
-// loop through radios
-function loopRadios() {
-  for (
-    let i = 0;
-    i < document.getElementsByClass.form - check - input.length;
-    i++
-  ) {}
-}
-
 // +++++ RADIOS +++++
-function somethingRadios(data) {
+
+function findRadios(data) {
   //find all radio buttons
   let allRadioButtons = document.getElementsByClassName("form-check-input");
   // console.log("allRadioButtons :>> ", allRadioButtons);

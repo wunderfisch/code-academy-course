@@ -5,6 +5,31 @@ section {
 h1 {
   padding: 2rem;
 }
+.background {
+  background-color: rgb(235, 235, 250);
+}
+
+#beschaeftigte {
+  width: 10rem;
+}
+
+#less1 {
+  margin-left: 0em;
+  margin-right: 0.35em;
+}
+#less5 {
+  margin-left: 2em;
+  margin-right: 0.35em;
+}
+#less50 {
+  margin-left: 2em;
+  margin-right: 0.35em;
+}
+#more50 {
+  margin-left: 2em;
+  margin-right: 0.35em;
+}
+
 /* 
 card {
   background-color: aquamarine;

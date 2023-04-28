@@ -11,7 +11,7 @@
     <title>Beteiligungen in Karten dargestellt</title>
 </head>
 
-<body>
+<body class="background">
     <nav class="navbar navbar-expand-md bg-body-tertiary">
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
@@ -50,10 +50,10 @@
         <div>
             <p>Unternehmen mit Anzahl an Beschäftigten:</p>
             <select class="form-select" aria-label="Default select example" name="beschaeftigte" id="beschaeftigte">
-                <option value="10">weniger als 10</option>
-                <option value="50">bis 49</option>
-                <option value="500">bis 499</option>
-                <option selected value="20000">alle</option>
+                <option value="10" id="inlineRadio1">weniger als 10</option>
+                <option value="50" id="inlineRadio2"> bis 49</option>
+                <option value="500" id="inlineRadio3"> bis 499</option>
+                <option selected value="20000" id="inlineRadio4"> alle</option>
             </select>
         </div>
     </section>
