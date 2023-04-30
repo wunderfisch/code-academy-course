@@ -70,24 +70,18 @@ function tabelleAlle(data) {
 }
 // tabelleAlle();
 
-// BUTTON
-// implemented 2 times in html, why do they not count together?
-function clickHere() {
-  console.log("clicked");
-}
-
-// button with EventListener for action
-// get button
-var secondButton = document.getElementById("secondButton");
-// function to be called (functionality does not make sense right now, better get a filter later...)
-function changeColor() {
-  container.classList.toggle("light");
-}
-// function call as callback function
-secondButton.addEventListener("click", changeColor);
-
-let inputContainer = document.getElementById("inputContainer");
-let newInput = document.createElement("input");
-newInput.setAttribute("type", "checkbox");
-console.log("newInput :>> ", newInput);
-inputContainer.appendChild(newInput);
+// BUTTON OPEN-CLOSE
+let buttonOpenClose = () => {
+  let toggleButton = document
+    .getElementById("openclose")
+    .addEventListener("click", function () {
+      let tButton = document.getElementById("openclose");
+      if (tButton.innerText === "Aufklappen") {
+        tButton.innerText = "Zuklappen";
+      } else {
+        tButton.innerText = "Aufklappen";
+      }
+    });
+  toggleButton.innerText = "Zuklappen";
+};
+buttonOpenClose();

@@ -19,7 +19,7 @@ fetch(
 // +++++ RADIOS +++++
 
 function findRadios(data) {
-  //find all radio buttons
+  //find all radio buttons and trigger when a change happens
   let allRadioButtons = document.getElementsByClassName("form-check-input");
   // console.log("allRadioButtons :>> ", allRadioButtons);
   // loop to see which was picked
@@ -33,8 +33,8 @@ function findRadios(data) {
   }
 }
 
-let filterRadios = (dataresults) => {
-  // console.log("dataresults :>> ", dataresults);
+let filterRadios = (data) => {
+  // console.log("data :>> ", data);
   // console.log("value :>> ", value);// this would work only if we recieve value as argument
 
   //find the checked radio button
@@ -42,14 +42,14 @@ let filterRadios = (dataresults) => {
   console.log("checkedRadio.value :>> ", checkedRadio.value);
   let filteredResults = [];
 
-  for (let i = 0; i < dataresults.length; i++) {
-    //  console.log("dataresults.umsatz :>> ", dataresults[i].umsatz);
-    if (parseFloat(dataresults[i].umsatz) < checkedRadio.value) {
-      filteredResults.push(dataresults[i]);
+  for (let i = 0; i < data.length; i++) {
+    //  console.log("data.umsatz :>> ", data[i].umsatz);
+    if (parseFloat(data[i].umsatz) < checkedRadio.value) {
+      filteredResults.push(data[i]);
     }
 
     /* // same but with .filter
-  let filteredResults = dataresults.filter((singleData) => {
+  let filteredResults = data.filter((singleData) => {
     return singleData.umsatz < checkedRadio.value;
   }); */
     cardsAlle(filteredResults);
@@ -63,7 +63,7 @@ let filterRadios = (dataresults) => {
 function dropdownBeschaeftigte(data) {
   // find the options
   // console.log("data :>> ", data);
-  let allDropDown = document.getElementsByTagName("option");
+  // let allDropDown = document.getElementsByTagName("option");
 
   const select = document.getElementById("beschaeftigte");
   // console.log("select :>> ", select);
@@ -74,6 +74,7 @@ function dropdownBeschaeftigte(data) {
   });
 }
 
+/* // NEVER CALLED
 // find the selected option
 function findSelectOption(data) {
   // console.log("data :>> ", data);
@@ -85,7 +86,7 @@ function findSelectOption(data) {
       filterBySelect(allDropDown[i].value, data);
     }
   }
-}
+} */
 
 const filterBySelect = (data) => {
   // console.log("data", data);
@@ -95,7 +96,7 @@ const filterBySelect = (data) => {
   let filteredData = [];
 
   for (let i = 0; i < data.length; i++) {
-    if (parseInt(data[i].beschaeftigte) < +selectValue) {
+    if (parseInt(data[i].beschaeftigte) < selectValue) {
       filteredData.push(data[i]);
     }
   }
