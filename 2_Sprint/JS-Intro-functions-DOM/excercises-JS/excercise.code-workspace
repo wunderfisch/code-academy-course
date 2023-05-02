@@ -1,13 +1,14 @@
 {
   "folders": [
-	{
-		"path": "."
-	},
-	{
-		"path": "../lecture"
-	}
-],
+    {
+      "path": "."
+    },
+    {
+      "path": "../lecture"
+    }
+  ],
   "settings": {
-    "liveServer.settings.multiRootWorkspaceName": "lecture"
+    "liveServer.settings.multiRootWorkspaceName": "lecture",
+    "liveServer.settings.port": 5501
   }
 }
