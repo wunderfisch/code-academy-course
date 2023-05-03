@@ -1,7 +1,7 @@
 import React from "react";
-import ArticleSection from "./ArticleSection";
-import Footer from "./Footer";
-import Navbar from "./Navbar";
+import ArticleSection from "../components/ArticleSection";
+import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
 
 function HomePage() {
   return (

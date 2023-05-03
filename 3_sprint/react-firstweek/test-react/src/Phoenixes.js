@@ -14,6 +14,14 @@ function Phoenixes() {
   ];
   // a second element to be send somewhere
   const projectName = "React";
+
+  // to get info from child to parent we have to use an event
+  // because passing from child up to parent is not allowed
+  // therefore create a function, functions can be send down from parent to child
+  const getColor = (color) => {
+    console.log("color :>> ", color);
+  };
+
   return (
     <div>
       <h3>All the Phoenixes are:</h3>
@@ -33,7 +41,13 @@ function Phoenixes() {
             projectName={projectName}
           /> */
           // same with destructuring(kvp named the same) and a second key-value-pair
-          <Student key={index} phoenix={phoenix} projectName={projectName} />
+          <Student
+            key={index}
+            phoenix={phoenix}
+            projectName={projectName}
+            // pass the getColor function down to child
+            getColor={getColor}
+          />
         );
       })}
     </div>
