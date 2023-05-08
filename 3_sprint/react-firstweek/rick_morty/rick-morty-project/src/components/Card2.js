@@ -12,9 +12,15 @@ function Card2(props) {
       <Card.Body>
         <Card.Title>{charactername}</Card.Title>
         <Card.Text>{species}</Card.Text>
-        <Button class="show-modal" variant="primary">
+        <Button className="show-modal" variant="primary">
           More Info
         </Button>
+        <div className="modal hidden">
+          <button className="close-modal">&times;</button>
+          <h3>{charactername}</h3>
+          <p>Species: {species}</p>
+          {/*    <p>Status: {alive}</p> */}
+        </div>
       </Card.Body>
     </Card>
   );

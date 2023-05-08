@@ -11,7 +11,7 @@ function App() {
     <div className="App">
       <h1>Rick & Morty project</h1>
       <Searchbar />
-      <Grid />
+      {/* <Grid /> */}
       {/* <Card2 /> */}
       <Characters />
       <Morepages />

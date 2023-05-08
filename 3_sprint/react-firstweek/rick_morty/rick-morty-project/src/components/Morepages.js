@@ -3,7 +3,7 @@ import Button from "react-bootstrap/Button";
 
 function Morepages() {
   return (
-    <div>
+    <div className="headspace">
       <Button variant="secondary">back</Button>{" "}
       <Button variant="secondary">forward</Button>
     </div>
