@@ -13,9 +13,11 @@ code {
 }
 
 img {
-  border: solid 1px crimson;
 }
 
+.ownbutton {
+  border-radius: 3px;
+}
 .card {
 }
 
@@ -41,18 +43,36 @@ img {
   display: none;
 }
 
-.modal {
+.newmodal {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 70%;
 
   background-color: white;
-  padding: 6rem;
+  top: 50%;
+  left: 50%;
+  border: 1px solid grey;
+  z-index: 10;
+  padding: 3rem;
+  border-radius: 5px;
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+}
+
+.modal1 {
+  background-color: white;
+  position: absolute;
+  left: 0px;
+  width: 100%;
+  border: 1px solid grey;
+  padding: 3rem;
   border-radius: 5px;
   box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
   z-index: 10;
+}
+
+.close-modal {
+  position: relative;
+  right: -100px;
+  top: -20px;
+  border-radius: 3px;
 }
 
 .overlay {

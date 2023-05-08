@@ -1,11 +1,14 @@
 import React from "react";
-import Button from "react-bootstrap/Button";
+// import Button from "react-bootstrap/Button";
 
-function Morepages() {
+function Morepages(nextpage) {
+  console.log("nextpage :>> ", nextpage);
   return (
     <div className="headspace">
-      <Button variant="secondary">back</Button>{" "}
-      <Button variant="secondary">forward</Button>
+      <button className="ownbutton">{"<<< back"}</button>{" "}
+      <a href={nextpage}>
+        <button className="ownbutton">{"forward >>>"}</button>
+      </a>
     </div>
   );
 }

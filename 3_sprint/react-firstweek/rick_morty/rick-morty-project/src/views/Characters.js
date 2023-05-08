@@ -1,15 +1,25 @@
 import React, { useEffect, useState } from "react";
 import Card2 from "../components/Card2";
+import Modal from "../components/Modal";
+import Morepages from "../components/Morepages";
 
 function Characters() {
   // create a state variable to store the list of characters
   const [characters, setCharacters] = useState();
+  const [chosenCharacter, setChosenCharacter] = useState();
+  const [isOpen, setIsOpen] = useState(false);
+  const [pagenumber, setPagenumber] = useState(1);
+  const [url, setUrl] = useState(
+    `https://rickandmortyapi.com/api/character/?page=1`
+  );
+
+  // console.log("pages :>> ", pages.next);
 
   // fetch data from API
-  const getCharacters = () => {
+  const getCharacters = (url) => {
     // url can be in a own variable
     // do with template literals that get the page number send by a button pressed
-    let url = "https://rickandmortyapi.com/api/character/?page=2";
+    // let url = `https://rickandmortyapi.com/api/character/?page=${pagenumber}`;
 
     // regular fetch
     fetch(url)
@@ -19,22 +29,38 @@ function Characters() {
       .then((data) => {
         console.log("data :>> ", data);
         //
-        setCharacters(data.results);
+        // setCharacters(data.results);
+        setCharacters(data);
+
         /* createCards(data.results); */
+        // setPages(data.info);
       })
       .catch((error) => {
         console.log("error :>> ", error);
       });
   };
 
+  // let pagenumber = 1;
+
+  // useEffect(() => {
+  //   getCharacters();
+  // }, [pagenumber]);
   useEffect(() => {
-    getCharacters();
+    console.log("useEffcet run");
+    getCharacters(url);
   }, []);
 
   /* Search bar */
   // state variable for temporary storing input
   // initialise as empty string because it will be a string
   const [inputText, setInputText] = useState("");
+
+  let handleclick = (character) => {
+    setChosenCharacter(character);
+    // console.log("now", character);
+    setIsOpen(!isOpen);
+    // console.log("clicked");
+  };
 
   // handler
   let onInputChangeHandler = (event) => {
@@ -45,10 +71,17 @@ function Characters() {
   /*  function createCards(data) {
     let [cards, setCards] = useState();
   } */
-
+  const nextPage = () => {
+    // setPagenumber(pagenumber + 1);
+    getCharacters(characters.info.next);
+  };
   return (
     <div>
       <h2>Characters</h2>
+      {isOpen && characters && (
+        <Modal handleclick={handleclick} chosenCharacter={chosenCharacter} />
+      )}
+      {/* {pages && (nextpage = pages.next)} */}
 
       {/* search bar */}
       {/* <section>
@@ -64,27 +97,39 @@ function Characters() {
         <div className="card_grid">
           {/* image */}
           {characters ? (
-            characters.map((character) => {
+            characters.results.map((character) => {
               return (
-                <Card2
-                  key={character.id}
-                  name={character.name}
-                  src={character.image}
-                  species={character.species}
-                />
+                <>
+                  <div>
+                    <Card2
+                      key={character.id}
+                      name={character.name}
+                      src={character.image}
+                      // species={character.species}
+                    />
+
+                    <button
+                      className="ownbutton"
+                      onClick={() => handleclick(character)}
+                    >
+                      more
+                    </button>
+                  </div>
+                  {/*                   {isOpen && (
+                    <Modal handleclick={handleclick} character={character} />
+                  )} */}
+                </>
               );
-              /*    (
-                <div key={character.id}>
-                  <img src={character.image}></img>
-                  <p>{character.name}</p>
-                </div>
-              ); */
             })
           ) : (
             <p>loading...</p>
           )}
         </div>
       </section>
+      <div>
+        {/* <button onClick={pages && (url = pages.next)}>next page</button> */}
+        <button onClick={nextPage}>next page</button>
+      </div>
       {/*   {characters &&
         characters.map((character, index) => {
           // fetch is by default asynchronous, when the compiler arrives here the setCharacters(data.results) in second .then has not run yet
