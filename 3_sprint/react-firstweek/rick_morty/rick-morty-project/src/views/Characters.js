@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Card2 from "../components/Card2";
 
 function Characters() {
   // create a state variable to store the list of characters
@@ -7,6 +8,7 @@ function Characters() {
   // fetch data from API
   const getCharacters = () => {
     // url can be in a own variable
+    // do with template literals that get the page number send by a button pressed
     let url = "https://rickandmortyapi.com/api/character/?page=2";
 
     // regular fetch
@@ -37,6 +39,7 @@ function Characters() {
   // handler
   let onInputChangeHandler = (event) => {
     setInputText(event.target.value);
+    console.log("InputText :>> ", inputText);
   };
 
   /*  function createCards(data) {
@@ -46,27 +49,36 @@ function Characters() {
   return (
     <div>
       <h2>Characters</h2>
+
       {/* search bar */}
-      <section>
+      {/* <section>
         <input
           type="text"
           value={inputText}
           onChange={onInputChangeHandler}
         ></input>
-      </section>
+      </section> */}
       {/* section to hold all cards */}
       <section>
         {/* singel card */}
-        <div>
+        <div className="card_grid">
           {/* image */}
           {characters ? (
-            characters.map((firstparameter, index) => {
+            characters.map((character) => {
               return (
-                <div key={firstparameter.id}>
-                  <img src={firstparameter.image}></img>
-                  <p>{firstparameter.name}</p>
-                </div>
+                <Card2
+                  key={character.id}
+                  name={character.name}
+                  src={character.image}
+                  species={character.species}
+                />
               );
+              /*    (
+                <div key={character.id}>
+                  <img src={character.image}></img>
+                  <p>{character.name}</p>
+                </div>
+              ); */
             })
           ) : (
             <p>loading...</p>
@@ -74,21 +86,21 @@ function Characters() {
         </div>
       </section>
       {/*   {characters &&
-        characters.map((firstparameter, index) => {
+        characters.map((character, index) => {
           // fetch is by default asynchronous, when the compiler arrives here the setCharacters(data.results) in second .then has not run yet
           // so map finds nothing. therefor do in react a "conditional render"
           // conditional render means: loop only over array if something is inside
           // therefor: characters && characters.map - this means only if characters is true run second part
           return (
             <p>
-              Character key={index} {firstparameter.name}
+              Character key={index} {character.name}
             </p>
           );
         })} */}
       {/*  instead of conditinal rendering we can also use a ternary operator. if characters is true go on... */}
       {/* {characters ? (
-        characters.map((firstparameter, index) => {
-          return <div><p key={index}>{firstparameter.name}</p>
+        characters.map((character, index) => {
+          return <div><p key={index}>{character.name}</p>
           <p></p>
           </div>
           
