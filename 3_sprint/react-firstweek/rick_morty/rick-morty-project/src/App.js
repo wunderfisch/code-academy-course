@@ -14,7 +14,7 @@ function App() {
       {/* <Grid /> */}
       {/* <Card2 /> */}
       <Characters />
-      <Morepages />
+      {/* <Morepages /> */}
     </div>
   );
 }

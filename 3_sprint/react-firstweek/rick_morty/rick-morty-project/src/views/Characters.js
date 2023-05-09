@@ -75,8 +75,19 @@ function Characters() {
     // setPagenumber(pagenumber + 1);
     getCharacters(characters.info.next);
   };
+  const beforePage = () => {
+    getCharacters(characters.info.prev);
+  };
+  const firstPage = () => {
+    getCharacters(url);
+  };
+  const lastPage = () => {
+    getCharacters(
+      `https://rickandmortyapi.com/api/character/?page=${characters.info.pages}`
+    );
+  };
   return (
-    <div>
+    <div className="background">
       <h2>Characters</h2>
       {isOpen && characters && (
         <Modal handleclick={handleclick} chosenCharacter={chosenCharacter} />
@@ -126,9 +137,12 @@ function Characters() {
           )}
         </div>
       </section>
-      <div>
+      <div className="headspace">
         {/* <button onClick={pages && (url = pages.next)}>next page</button> */}
-        <button onClick={nextPage}>next page</button>
+        <button onClick={firstPage}>{"first page"}</button>{" "}
+        <button onClick={beforePage}>{"<<< page before"}</button>{" "}
+        <button onClick={nextPage}>{"next page >>>"}</button>{" "}
+        <button onClick={lastPage}>{"last page >>>"}</button>
       </div>
       {/*   {characters &&
         characters.map((character, index) => {

@@ -15,6 +15,10 @@ code {
 img {
 }
 
+.background {
+  background-color: rgb(222, 248, 239);
+}
+
 .ownbutton {
   border-radius: 3px;
 }
@@ -45,7 +49,6 @@ img {
 
 .newmodal {
   position: absolute;
-
   background-color: white;
   top: 50%;
   left: 50%;
