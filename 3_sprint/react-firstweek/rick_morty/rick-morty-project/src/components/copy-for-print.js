@@ -68,7 +68,6 @@ function Characters() {
                       name={character.name}
                       src={character.image}
                     />
-
                     <button
                       className="ownbutton"
                       onClick={() => handleclick(character)}
