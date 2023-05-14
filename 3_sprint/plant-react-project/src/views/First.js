@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
+import Cardview from "../components/Cardview";
+import Credits from "../components/Credits";
 
 function First() {
-  //   const [url, setUrl] = useState(
-  //     `https://perenual.com/api/species-list?page=1&key=${process.env.REACT_APP_API_KEY}`
-  //   );
+  const [url, setUrl] = useState(
+    `https://perenual.com/api/species-list?page=1&key=${process.env.REACT_APP_API_KEY}`
+  );
   const [plants, setPlants] = useState();
 
-  const getPlants = () => {
-    let url = `https://perenual.com/api/species-list?page=1&key=${process.env.REACT_APP_API_KEY}`;
+  const getPlants = (url) => {
     fetch(url)
       .then((response) => {
         return response.json();
@@ -22,32 +23,45 @@ function First() {
   };
 
   useEffect(() => {
-    getPlants();
+    getPlants(url);
   }, []);
+
+  const nextPage = () => {
+    getPlants(
+      `https://perenual.com/api/species-list?page=${2}&key=${
+        process.env.REACT_APP_API_KEY
+      }`
+    );
+  };
 
   return (
     <div>
-      <p>something</p>
-      {plants &&
-        plants.data.map((plant) => {
-          return <p>{plant.common_name}</p>;
-        })}
-      {/*  <section>
-        <div>
-          {plants ? (
-            plants.result.map((plant) => {
-              return (
-                <p>
-                  key={plant.id[0]}
-                  name={plant.other_name[0]}
-                </p>
-              );
-            })
-          ) : (
-            <p>...loading</p>
-          )}
-        </div>
-      </section> */}
+      <h1>Fun with plants</h1>
+      <div className="cardgrid">
+        {plants ? (
+          plants.data.map((plant) => {
+            return (
+              <>
+                <Cardview
+                  key={plant.id}
+                  name={plant.common_name}
+                  src={plant.default_image.small_url}
+                  license={plant.default_image.license_name}
+                />
+              </>
+            );
+          })
+        ) : (
+          <p>...loading...</p>
+        )}
+      </div>
+      <div className="headspace">
+        <button onClick={nextPage}>{"next page >>>"}</button>{" "}
+        {/* <button onClick={beforePage}>{"<<< page before"}</button>{" "}
+        <button onClick={firstPage}>{"first page"}</button>{" "}
+        <button onClick={lastPage}>{"last page >>>"}</button> */}
+      </div>
+      <Credits />
     </div>
   );
 }

@@ -107,6 +107,7 @@ const filterBySelect = (data) => {
 // let filterOptions = (data) => {
 //   console.log("data in filterOptions :>> ");
 // };
+//
 
 // +++++ CREATE CARDS ++++++
 // create cards with bootstrap: has to have the concatination, names, styles bootsrap requires. look up: bootstrap-->components-->card
