@@ -4,14 +4,17 @@ function Cardview(props) {
   const plantname = props.name;
   const image = props.src;
   const license = props.license;
-
+  const license_url = props.license_url;
   return (
     <div>
       <div className="card">
         <img className="cardimage" src={image} />
-        <div className="license">Picture: {license}</div>
+        <a href={license_url}>
+          <p className="license">Picture: {license}</p>
+        </a>
         <div className="cardbody">
           <div className="cardtitle">{plantname}</div>
+          {/* <button onClick={}>more info</button> */}
         </div>
       </div>
     </div>

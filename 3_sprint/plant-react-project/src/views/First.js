@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Cardview from "../components/Cardview";
 import Credits from "../components/Credits";
+import SinglePlant from "../components/SinglePlant";
 
 function First() {
   const [url, setUrl] = useState(
@@ -14,7 +15,7 @@ function First() {
         return response.json();
       })
       .then((data) => {
-        console.log("data :>> ", data);
+        // console.log("data :>> ", data);
         setPlants(data);
       })
       .catch((error) => {
@@ -37,6 +38,9 @@ function First() {
   return (
     <div>
       <h1>Fun with plants</h1>
+      {/* <div className="hidden">
+        <SinglePlant items={plants} />
+      </div> */}
       <div className="cardgrid">
         {plants ? (
           plants.data.map((plant) => {
@@ -47,6 +51,7 @@ function First() {
                   name={plant.common_name}
                   src={plant.default_image.small_url}
                   license={plant.default_image.license_name}
+                  license_url={plant.default_image.license_url}
                 />
               </>
             );

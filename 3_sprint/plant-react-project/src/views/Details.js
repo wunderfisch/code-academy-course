@@ -1,6 +1,6 @@
 import React from "react";
 
-function Details() {
+function Details(props) {
   return <div>Details</div>;
 }
 
