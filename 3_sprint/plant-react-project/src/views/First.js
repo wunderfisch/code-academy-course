@@ -5,7 +5,7 @@ import SinglePlant from "../components/SinglePlant";
 
 function First() {
   let [page, setPage] = useState(1);
-  const [url, setUrl] = useState(
+  let [url, setUrl] = useState(
     `https://perenual.com/api/species-list?page=${page}&key=${process.env.REACT_APP_API_KEY}`
   );
   const [plants, setPlants] = useState();
@@ -25,12 +25,19 @@ function First() {
   };
 
   function increasePage() {
+    console.log("increae page");
+
     setPage(page + 1);
+    setUrl(
+      `https://perenual.com/api/species-list?page=${page}&key=${process.env.REACT_APP_API_KEY}`
+    );
   }
 
   useEffect(() => {
     getPlants(url);
-  }, []);
+  }, [url]);
+
+  console.log("url", url);
 
   // const nextPage = () => {
   //   getPlants(
@@ -40,6 +47,7 @@ function First() {
   //   );
   // };
 
+  console.log("page", page);
   return (
     <div>
       <h1>Fun with plants</h1>
