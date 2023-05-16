@@ -1,5 +1,7 @@
 import React from "react";
 
+//
+
 function SinglePlant(props) {
   console.log("this.props.first :>> ", props);
   const plantname = props.props.data.common_name;

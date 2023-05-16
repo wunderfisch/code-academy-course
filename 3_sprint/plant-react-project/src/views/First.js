@@ -4,8 +4,8 @@ import Credits from "../components/Credits";
 import SinglePlant from "../components/SinglePlant";
 
 function First() {
-  let [page, setPage] = useState(1);
-  let [url, setUrl] = useState(
+  const [page, setPage] = useState(1);
+  const [url, setUrl] = useState(
     `https://perenual.com/api/species-list?page=${page}&key=${process.env.REACT_APP_API_KEY}`
   );
   const [plants, setPlants] = useState();
@@ -25,13 +25,25 @@ function First() {
   };
 
   function increasePage() {
-    console.log("increae page");
+    console.log("increase page");
+    setPage((prev) => prev + 1);
+  }
+  function decreasePage() {
+    console.log("decrease page");
+    setPage((prev) => prev - 1);
+  }
+  function firstPage() {
+    setPage(1);
+  }
+  function lastPage() {
+    setPage(99);
+  }
 
-    setPage(page + 1);
+  useEffect(() => {
     setUrl(
       `https://perenual.com/api/species-list?page=${page}&key=${process.env.REACT_APP_API_KEY}`
     );
-  }
+  }, [page]);
 
   useEffect(() => {
     getPlants(url);
@@ -74,10 +86,22 @@ function First() {
         )}
       </div>
       <div className="headspace">
-        <button onClick={increasePage}>{"next page >>>"}</button>{" "}
-        {/* <button onClick={beforePage}>{"<<< page before"}</button>{" "}
-        <button onClick={firstPage}>{"first page"}</button>{" "}
-        <button onClick={lastPage}>{"last page >>>"}</button> */}
+        {(() => {
+          if (page > 1) {
+            return (
+              <button onClick={decreasePage}>{"<<< previous page"}</button>
+            );
+          }
+        })()}{" "}
+        {(() => {
+          if (page < 99) {
+            return <button onClick={increasePage}>{"next page >>>"}</button>;
+          }
+        })()}{" "}
+        {/* {" "}
+        <button onClick={randomPage}>{"random page"}</button>*/}
+        <button onClick={firstPage}>{"first page"}</button>
+        <button onClick={lastPage}>{"last page"}</button>
       </div>
       <Credits />
     </div>

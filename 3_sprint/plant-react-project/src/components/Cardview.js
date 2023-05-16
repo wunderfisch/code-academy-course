@@ -5,6 +5,7 @@ function Cardview(props) {
   const image = props.src;
   const license = props.license;
   const license_url = props.license_url;
+  const key = props.key;
   return (
     <div>
       <div className="card">
@@ -15,6 +16,7 @@ function Cardview(props) {
         <div className="cardbody">
           <div className="cardtitle">{plantname}</div>
           {/* <button onClick={}>more info</button> */}
+          {/* button of clicked element sends id to singlePlant and routes the user there */}
         </div>
       </div>
     </div>
