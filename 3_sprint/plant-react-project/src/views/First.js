@@ -4,8 +4,9 @@ import Credits from "../components/Credits";
 import SinglePlant from "../components/SinglePlant";
 
 function First() {
+  let [page, setPage] = useState(1);
   const [url, setUrl] = useState(
-    `https://perenual.com/api/species-list?page=1&key=${process.env.REACT_APP_API_KEY}`
+    `https://perenual.com/api/species-list?page=${page}&key=${process.env.REACT_APP_API_KEY}`
   );
   const [plants, setPlants] = useState();
 
@@ -23,17 +24,21 @@ function First() {
       });
   };
 
+  function increasePage() {
+    setPage(page + 1);
+  }
+
   useEffect(() => {
     getPlants(url);
   }, []);
 
-  const nextPage = () => {
-    getPlants(
-      `https://perenual.com/api/species-list?page=${2}&key=${
-        process.env.REACT_APP_API_KEY
-      }`
-    );
-  };
+  // const nextPage = () => {
+  //   getPlants(
+  //     `https://perenual.com/api/species-list?page=${2}&key=${
+  //       process.env.REACT_APP_API_KEY
+  //     }`
+  //   );
+  // };
 
   return (
     <div>
@@ -61,7 +66,7 @@ function First() {
         )}
       </div>
       <div className="headspace">
-        <button onClick={nextPage}>{"next page >>>"}</button>{" "}
+        <button onClick={increasePage}>{"next page >>>"}</button>{" "}
         {/* <button onClick={beforePage}>{"<<< page before"}</button>{" "}
         <button onClick={firstPage}>{"first page"}</button>{" "}
         <button onClick={lastPage}>{"last page >>>"}</button> */}
