@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Cardview from "../components/Cardview";
 import Credits from "../components/Credits";
-import SinglePlant from "../components/SinglePlant";
+import SinglePlant from "../components/DetailedPlant";
 
 function First() {
   const [page, setPage] = useState(1);
@@ -72,7 +72,8 @@ function First() {
             return (
               <>
                 <Cardview
-                  key={plant.id}
+                  id={plant.id}
+                  // hand over the whole plant like plant={plant}
                   name={plant.common_name}
                   src={plant.default_image.small_url}
                   license={plant.default_image.license_name}

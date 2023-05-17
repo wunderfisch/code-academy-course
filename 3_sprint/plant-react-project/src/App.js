@@ -18,8 +18,8 @@ function App() {
         <Route path="/favorties" element={<Favorites />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/details/:id/:common_name" element={<Details />} />
         <Route path="*" element={<NoMatch />} />
-        <Route path="/:details" element={<Details />} />
       </Routes>
 
       {/*  <First />
