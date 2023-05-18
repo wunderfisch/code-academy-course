@@ -33,7 +33,6 @@ function Details() {
   return (
     <div>
       <div className="displaysingleplant">
-        <h2>Details on {common_name}</h2>
         {detailedPlant ? (
           <DetailedPlant detailedPlant={detailedPlant} />
         ) : (
