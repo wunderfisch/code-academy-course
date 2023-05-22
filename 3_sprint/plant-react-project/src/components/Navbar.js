@@ -16,6 +16,10 @@ function Navbar() {
         <Link to="/register" className="navtab">
           Register
         </Link>
+        {""}|{""}
+        <Link to="/favorites" className="navtab">
+          Favorites
+        </Link>
       </nav>
     </div>
   );

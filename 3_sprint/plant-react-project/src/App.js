@@ -2,6 +2,8 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Credits from "./components/Credits";
 import Navbar from "./components/Navbar";
+import { AuthContextProvider } from "./context/AuthContext";
+import ProtectedRoute from "./routes/ProtectedRoute";
 import Details from "./views/Details";
 import Favorites from "./views/Favorites";
 import First from "./views/First";
@@ -12,18 +14,27 @@ import Register from "./views/Register";
 function App() {
   return (
     <div className="App">
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<First />} />
-        <Route path="/favorties" element={<Favorites />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/details/:id/:common_name" element={<Details />} />
-        <Route path="*" element={<NoMatch />} />
-      </Routes>
-
-      {/*  <First />
-      <Credits /> */}
+      {/* AuthContextProvider should be available everywhere to know if a user is logged in */}
+      <AuthContextProvider>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<First />} />
+          <Route
+            path="/favorites"
+            element={
+              // frame with protected Route which will manage if user is logged in
+              <ProtectedRoute>
+                <Favorites />
+              </ProtectedRoute>
+            }
+          />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/details/:id/:common_name" element={<Details />} />
+          <Route path="*" element={<NoMatch />} />
+        </Routes>
+        <Credits />
+      </AuthContextProvider>
     </div>
   );
 }

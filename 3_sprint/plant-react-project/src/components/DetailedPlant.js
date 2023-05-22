@@ -65,6 +65,9 @@ function DetailedPlant({ detailedPlant }) {
             </p>
             <p>{description}</p>
           </div>
+          <div>
+            <button>back to main page</button>
+          </div>
         </div>
       </div>
     </div>

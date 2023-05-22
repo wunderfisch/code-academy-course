@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Cardview from "../components/Cardview";
-import Credits from "../components/Credits";
-import SinglePlant from "../components/DetailedPlant";
+import { AuthContext } from "../context/AuthContext";
 
 function First() {
   const [page, setPage] = useState(1);
@@ -9,6 +8,9 @@ function First() {
     `https://perenual.com/api/species-list?page=${page}&key=${process.env.REACT_APP_API_KEY}`
   );
   const [plants, setPlants] = useState();
+
+  // connect for welcoming the user
+  const { user } = useContext(AuthContext);
 
   const getPlants = (url) => {
     fetch(url)
@@ -38,6 +40,13 @@ function First() {
   function lastPage() {
     setPage(99);
   }
+  function randomPage() {
+    setPage(makeRandom);
+  }
+
+  function makeRandom() {
+    return Math.floor(Math.random() * 100);
+  }
 
   useEffect(() => {
     setUrl(
@@ -51,21 +60,16 @@ function First() {
 
   console.log("url", url);
 
-  // const nextPage = () => {
-  //   getPlants(
-  //     `https://perenual.com/api/species-list?page=${2}&key=${
-  //       process.env.REACT_APP_API_KEY
-  //     }`
-  //   );
-  // };
-
   console.log("page", page);
   return (
     <div>
       <h1>Fun with plants</h1>
-      {/* <div className="hidden">
-        <SinglePlant items={plants} />
-      </div> */}
+      {/* conditional rendering because user is on first loading null */}
+      {user ? (
+        <h3>Welcome {user.name}</h3>
+      ) : (
+        <h3>consider logging in to have even more fun with plants</h3>
+      )}
       <div className="cardgrid">
         {plants ? (
           plants.data.map((plant) => {
@@ -90,21 +94,26 @@ function First() {
         {(() => {
           if (page > 1) {
             return (
-              <button onClick={decreasePage}>{"<<< previous page"}</button>
+              <>
+                {" "}
+                <button onClick={firstPage}>{"first page"}</button>{" "}
+                <button onClick={decreasePage}>{"<<< previous page"}</button>{" "}
+              </>
             );
           }
         })()}{" "}
+        <button onClick={randomPage}>{"random page"}</button>{" "}
         {(() => {
           if (page < 99) {
-            return <button onClick={increasePage}>{"next page >>>"}</button>;
+            return (
+              <>
+                <button onClick={increasePage}>{"next page >>>"}</button>{" "}
+                <button onClick={lastPage}>{"last page"}</button>
+              </>
+            );
           }
-        })()}{" "}
-        {/* {" "}
-        <button onClick={randomPage}>{"random page"}</button>*/}
-        <button onClick={firstPage}>{"first page"}</button>
-        <button onClick={lastPage}>{"last page"}</button>
+        })()}
       </div>
-      <Credits />
     </div>
   );
 }
