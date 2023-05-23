@@ -74,7 +74,7 @@ function First() {
         {plants ? (
           plants.data.map((plant) => {
             return (
-              <>
+              <div key={plant.id}>
                 <Cardview
                   id={plant.id}
                   // hand over the whole plant like plant={plant}
@@ -83,7 +83,7 @@ function First() {
                   license={plant.default_image.license_name}
                   license_url={plant.default_image.license_url}
                 />
-              </>
+              </div>
             );
           })
         ) : (
