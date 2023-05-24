@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import Credits from "./components/Credits";
-import Navbar from "./components/Navbar";
+
+import { app } from "./config/firebaseConfig";
 import { AuthContextProvider } from "./context/AuthContext";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import Details from "./views/Details";
@@ -10,8 +10,11 @@ import First from "./views/First";
 import Login from "./views/Login";
 import NoMatch from "./views/NoMatch";
 import Register from "./views/Register";
+import Credits from "./components/Credits";
+import Navbar from "./components/Navbar";
 
 function App() {
+  console.log("app :>> ", app);
   return (
     <div className="App">
       {/* AuthContextProvider should be available everywhere to know if a user is logged in */}

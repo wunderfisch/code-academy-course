@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import Cardview from "../components/Cardview";
+import Searchbar from "../components/Searchbar";
 import { AuthContext } from "../context/AuthContext";
 
 function First() {
@@ -48,6 +49,17 @@ function First() {
     return Math.floor(Math.random() * 100);
   }
 
+  const getSearch = (search) => {
+    console.log("search :>> ", search);
+    setUrl(
+      `https://perenual.com/api/species-list?key=${process.env.REACT_APP_API_KEY}&q=${search}`
+    );
+  };
+
+  // useEffect(() => {
+  //   setUrl(`https://perenual.com/api/species-list?key=${process.env.REACT_APP_API_KEY}&q=${search}`);
+  // }, [search]);
+
   useEffect(() => {
     setUrl(
       `https://perenual.com/api/species-list?page=${page}&key=${process.env.REACT_APP_API_KEY}`
@@ -58,9 +70,8 @@ function First() {
     getPlants(url);
   }, [url]);
 
-  console.log("url", url);
-
-  console.log("page", page);
+  // console.log("url", url);
+  // console.log("page", page);
   return (
     <div>
       <h1>Fun with plants</h1>
@@ -70,6 +81,7 @@ function First() {
       ) : (
         <h3>consider logging in to have even more fun with plants</h3>
       )}
+      <Searchbar getSearch={getSearch} />
       <div className="cardgrid">
         {plants ? (
           plants.data.map((plant) => {
