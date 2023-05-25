@@ -7,6 +7,8 @@ function Login() {
   const [inputUserName, setInputUserName] = useState("");
   const [inputUserPW, setInputUserPW] = useState("");
 
+  const { login } = useContext(AuthContext);
+
   const inputHandler = (event) => {
     setInputUserName(event.target.value);
   };
@@ -21,17 +23,18 @@ function Login() {
   //     goTo("/");
   //   }, 2000);
   // };
-  const logout = () => {
+  const handleLogout = () => {
     setUser(null);
     setTimeout(() => {
       goTo("/");
     }, 2000);
   };
 
-  const becomeUser = () => {
+  const handleUserClick = () => {
     // inputUserName = setUser;
-    console.log("inputUserName :>> ", inputUserName);
-    console.log("inputUserPW :>> ", inputUserPW);
+    // console.log("inputUserName :>> ", inputUserName);
+    // console.log("inputUserPW :>> ", inputUserPW);
+    login(inputUserName, inputUserPW);
   };
 
   // redirect user after login
@@ -55,9 +58,9 @@ function Login() {
           value={inputUserPW}
           onChange={inputHandlerPW}
         />
-        <button onClick={becomeUser}>become user</button>
+        <button onClick={handleUserClick}>login</button>
         {user ? (
-          <button onClick={logout}>Logout</button>
+          <button onClick={handleLogout}>Logout</button>
         ) : (
           ""
           // <button onClick={login}>Login</button>
