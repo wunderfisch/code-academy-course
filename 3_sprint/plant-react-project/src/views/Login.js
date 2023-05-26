@@ -7,10 +7,11 @@ function Login() {
   const [inputUserName, setInputUserName] = useState("");
   const [inputUserPW, setInputUserPW] = useState("");
 
-  const { login } = useContext(AuthContext);
+  const { login, logout } = useContext(AuthContext);
 
   const inputHandler = (event) => {
     setInputUserName(event.target.value);
+    // check (probably) here + registration if email is fullfilling the norms
   };
 
   const inputHandlerPW = (event) => {
@@ -24,7 +25,7 @@ function Login() {
   //   }, 2000);
   // };
   const handleLogout = () => {
-    setUser(null);
+    logout();
     setTimeout(() => {
       goTo("/");
     }, 2000);
