@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
 
 function Navbar() {
+  const { user } = useContext(AuthContext);
+
   return (
     <div>
       <nav className="navigation">
@@ -19,6 +22,10 @@ function Navbar() {
         {""}|{""}
         <Link to="/favorites" className="navtab">
           Favorites
+        </Link>
+        {""}|{""}
+        <Link to="/chat" className={user ? "navtab" : "onlylogin navtab"}>
+          Members Chat
         </Link>
       </nav>
     </div>

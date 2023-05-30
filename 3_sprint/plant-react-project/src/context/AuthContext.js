@@ -93,7 +93,7 @@ export const AuthContextProvider = (props) => {
     checkUserLoggedIn();
   }, []);
 
-  // make user available
+  // make variables available
   return (
     <AuthContext.Provider
       value={{ user, setUser, register, login, logout, loading }}

@@ -51,3 +51,16 @@
 .searchbar {
   margin: 1rem;
 }
+
+.onlylogin {
+  cursor: not-allowed;
+  color: grey;
+  opacity: 0.3;
+}
+
+.chatmessage {
+  border: solid grey 1px;
+  border-radius: 10px;
+  margin: 1rem;
+  padding: 0.5rem;
+}

@@ -12,6 +12,7 @@ import NoMatch from "./views/NoMatch";
 import Register from "./views/Register";
 import Credits from "./components/Credits";
 import Navbar from "./components/Navbar";
+import Chat from "./views/Chat";
 
 function App() {
   console.log("app :>> ", app);
@@ -28,6 +29,14 @@ function App() {
               // frame with protected Route which will manage if user is logged in
               <ProtectedRoute>
                 <Favorites />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/chat"
+            element={
+              <ProtectedRoute>
+                <Chat />
               </ProtectedRoute>
             }
           />
