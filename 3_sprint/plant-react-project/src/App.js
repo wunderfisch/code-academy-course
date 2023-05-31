@@ -15,7 +15,7 @@ import Navbar from "./components/Navbar";
 import Chat from "./views/Chat";
 
 function App() {
-  console.log("app :>> ", app);
+  // console.log("app :>> ", app);
   return (
     <div className="App">
       {/* AuthContextProvider should be available everywhere to know if a user is logged in */}
