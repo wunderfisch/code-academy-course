@@ -12,20 +12,20 @@ function Navbar() {
           Home
         </Link>{" "}
         {""}|{""}
-        <Link to="/login" className="navtab">
-          Login
-        </Link>{" "}
-        {""}|{""}
-        <Link to="/register" className="navtab">
-          Register
-        </Link>
-        {""}|{""}
-        <Link to="/favorites" className="navtab">
+        <Link to="/favorites" className={user ? "navtab" : "onlylogin navtab"}>
           Favorites
         </Link>
         {""}|{""}
         <Link to="/chat" className={user ? "navtab" : "onlylogin navtab"}>
           Members Chat
+        </Link>
+        {""}|{""}
+        <Link to="/login" className="navtab">
+          {user ? "Logout" : "Login"}
+        </Link>{" "}
+        {""}|{""}
+        <Link to="/register" className="navtab">
+          {user ? "Delete Account" : "Register"}
         </Link>
       </nav>
     </div>

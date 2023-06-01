@@ -26,9 +26,10 @@ function Login() {
   // };
   const handleLogout = () => {
     logout();
-    setTimeout(() => {
+    alert("you are logged out");
+    {
       goTo("/");
-    }, 2000);
+    }
   };
 
   const handleUserClick = () => {
@@ -37,6 +38,10 @@ function Login() {
     // console.log("inputUserPW :>> ", inputUserPW);
 
     login(inputUserName, inputUserPW);
+    alert("you are logged in");
+    setTimeout(() => {
+      goTo("/");
+    }, 2000);
   };
 
   // redirect user after login
@@ -45,33 +50,48 @@ function Login() {
   return (
     <div>
       <h1>Login or Logout</h1>
-      <div>
-        <label for="username">Username: </label>
-        <input
-          type="text"
-          id="username"
-          value={inputUserName}
-          onChange={inputHandler}
-        />
-        <label for="userpw">Password: </label>
-        <input
-          type="text"
-          id="userpw"
-          value={inputUserPW}
-          onChange={inputHandlerPW}
-        />
-        <button onClick={handleUserClick}>login</button>
-        {user ? (
-          <button onClick={handleLogout}>Logout</button>
-        ) : (
-          ""
-          // <button onClick={login}>Login</button>
-        )}
-      </div>
-      <div>
-        Do not have an account yet?
-        <Link to="/register">Go and register one.</Link>
-      </div>
+
+      {(() => {
+        if (!user) {
+          return (
+            <>
+              <div>
+                <label for="username">Username: </label>
+                <input
+                  type="text"
+                  id="username"
+                  value={inputUserName}
+                  onChange={inputHandler}
+                />
+                <label for="userpw">Password: </label>
+                <input
+                  type="text"
+                  id="userpw"
+                  value={inputUserPW}
+                  onChange={inputHandlerPW}
+                />
+                <button onClick={handleUserClick}>login</button>
+              </div>
+              <div className="headspace">
+                Do not have an account yet?{" "}
+                <Link to="/register">Go and register one.</Link>
+              </div>
+            </>
+          );
+        } else {
+          return (
+            <>
+              <div>
+                You are now logged-in as{" "}
+                <span className="yourmail">{user.email}</span>
+              </div>
+              <div className="headspace">
+                <button onClick={handleLogout}>Logout</button>
+              </div>
+            </>
+          );
+        }
+      })()}
     </div>
   );
 }

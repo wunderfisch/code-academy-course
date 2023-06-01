@@ -77,7 +77,9 @@ function First() {
       <h1>Fun with plants</h1>
       {/* conditional rendering because user is on first loading null */}
       {user ? (
-        <h3>Welcome {user.name}</h3>
+        <h3>
+          Welcome <span className="yourmail">{user.email}</span>
+        </h3>
       ) : (
         <h3>consider logging in to have even more fun with plants</h3>
       )}

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../styles/detailedPlant.css";
 
 //
@@ -66,7 +67,9 @@ function DetailedPlant({ detailedPlant }) {
             <p>{description}</p>
           </div>
           <div>
-            <button>back to main page</button>
+            <Link to="/">
+              <button>back to main page</button>
+            </Link>
           </div>
         </div>
       </div>
