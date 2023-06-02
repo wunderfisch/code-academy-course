@@ -9,35 +9,43 @@ function Register() {
   const [inputInitialUserName, setInputInitialUserName] = useState("");
   const [inputInitialUserPW, setInputInitialUserPW] = useState("");
   const [displayValid, setDisplayValid] = useState("");
+  const [displayValidPW, setDisplayValidPW] = useState("");
 
   const inputHandler = (event) => {
     setInputInitialUserName(event.target.value);
-  };
 
-  const inputHandlerPW = (event) => {
-    setInputInitialUserPW(event.target.value);
-  };
+    const emailValidator = /[\w]+@[\w]+\.[a-z]{2,3}$/;
+    // const emailValidator = new RegExp("[w]+@[w]+.[a-z]{2}$");
 
-  // Problems here:
-  // only "Email is valid" is displayed shortly after click
-  // not valid is never displayed
-  // also possible login alert is shown without @ although no login
-  const handleRegisterClick = () => {
-    const emailValidator = /[a-zA-Z0-9]+@[a-zA-Z0-9]+.[a-z]/;
-    if (emailValidator.test(inputInitialUserName)) {
+    if (emailValidator.test(event.target.value)) {
       setDisplayValid("Email is valid");
-      register(inputInitialUserName, inputInitialUserPW);
+      // set button true
     } else if (
-      !emailValidator.test(inputInitialUserName)
+      !emailValidator.test(event.target.value)
       // && emailValidator === ""
     ) {
       setDisplayValid("Email is not valid");
     } else {
       setDisplayValid("");
     }
+  };
+
+  const inputHandlerPW = (event) => {
+    setInputInitialUserPW(event.target.value);
+    const passwordValidator = /[\w]{6,}/;
+    if (passwordValidator.test(event.target.value)) {
+      setDisplayValidPW("Password valid");
+    } else if (!passwordValidator.test(event.target.value)) {
+      setDisplayValidPW("think of a better password");
+    } else {
+      setDisplayValidPW("");
+    }
+  };
+
+  const handleRegisterClick = () => {
     // console.log("inputUserInitialName :>> ", inputInitialUserName);
     // console.log("inputUserInitialPW :>> ", inputInitialUserPW);
-    // register(inputInitialUserName, inputInitialUserPW);
+    register(inputInitialUserName, inputInitialUserPW);
   };
 
   const handleDeleteClick = () => {
@@ -60,7 +68,7 @@ function Register() {
   };
 
   return (
-    <div>
+    <div className="margin">
       {(() => {
         if (user) {
           return (
@@ -103,6 +111,13 @@ function Register() {
                 <button onClick={handleRegisterClick}>Register Account</button>
               </div>
               <div>{displayValid}</div>
+              <div>{displayValidPW}</div>
+              <div className="headspace">
+                ...want to learn about good passwords? Go to{" "}
+                <a href="https://datadetoxkit.org/en/security/passwords/">
+                  tactical tech
+                </a>{" "}
+              </div>
               <div className="headspace">
                 Already have an account? <Link to="/login">Go to login.</Link>
               </div>

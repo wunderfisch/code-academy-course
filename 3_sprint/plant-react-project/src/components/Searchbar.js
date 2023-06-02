@@ -14,7 +14,7 @@ function Searchbar(props) {
 
   return (
     <div>
-      <div className="searchbar">
+      <div className="margin">
         <label for="searchbar">Type plant name... </label>
         <input
           type="text"

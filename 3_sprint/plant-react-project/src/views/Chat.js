@@ -111,7 +111,7 @@ function Chat() {
 
   return (
     <div>
-      <h3>Chat</h3>
+      <h3 className="margin">Chat</h3>
       {/* map over to display single messages = msg in new div*/}
       <div>
         {messages &&

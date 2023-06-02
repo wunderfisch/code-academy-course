@@ -48,7 +48,7 @@ function Login() {
   const goTo = useNavigate();
 
   return (
-    <div>
+    <div className="margin">
       <h1>Login or Logout</h1>
 
       {(() => {

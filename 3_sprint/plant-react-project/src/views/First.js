@@ -74,14 +74,16 @@ function First() {
   // console.log("page", page);
   return (
     <div>
-      <h1>Fun with plants</h1>
+      <h1 className="margin">Fun with plants</h1>
       {/* conditional rendering because user is on first loading null */}
       {user ? (
-        <h3>
+        <h3 className="margin">
           Welcome <span className="yourmail">{user.email}</span>
         </h3>
       ) : (
-        <h3>consider logging in to have even more fun with plants</h3>
+        <h3 className="margin">
+          consider logging in to have even more fun with plants
+        </h3>
       )}
       <Searchbar getSearch={getSearch} />
       <div className="cardgrid">
